@@ -1,6 +1,7 @@
 package application;
 
 
+import CustomStuff.CustomButton;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
@@ -13,7 +14,7 @@ public CatPane() {
 		catList=new ListView<>();
 		catList.getItems().addAll("Kat1","Kat2","Kat3");
 		setCenter(catList);
-		catButton = new Button("Neue Kategorie hinzufügen");
+		catButton = new CustomButton("Neue Kategorie hinzufügen");
 		setBottom(new StackPane(catButton));
 	}
 }
