@@ -1,6 +1,10 @@
 package application;
 
+import java.net.URL;
+
+import CustomStuff.CustomStage;
 import javafx.application.Application;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -9,16 +13,27 @@ public class CookBook extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			//CustomStage primaryStage = new CustomStage();
 			BorderPane root = new BorderPane();
+			Scene scene = new Scene(root,1280,720);
+			primaryStage.setScene(scene);
+			primaryStage.setMinWidth(1280);
+			primaryStage.setMinHeight(720);
 			//category list on the right		
-			CatPane catPane = new CatPane();
+			CatPane catPane = new CatPane(primaryStage);
 			root.setRight(catPane);
 			// everything else on the left
 			CenterPane centerRoot = new CenterPane();
 			root.setCenter(centerRoot);
 			// make it visible
-			Scene scene = new Scene(root,1500,1000);
-			primaryStage.setScene(scene);
+			  URL url = this.getClass().getResource("CustCss.css");
+			    if (url == null) {
+			        System.out.println("Resource not found. Aborting.");
+			        System.exit(-1);
+			    }
+			    String css = url.toExternalForm(); 
+			   scene.getStylesheets().add(css);
+		
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -28,4 +43,5 @@ public class CookBook extends Application {
 	public static void main(String[] args) {
 		Application.launch(args);
 	}
+
 }

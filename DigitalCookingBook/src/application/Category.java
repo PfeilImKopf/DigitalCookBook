@@ -11,6 +11,7 @@ public class Category {
 	public Category(String name) {
 		this.name=name;
 		rezList = new ListView<Rezept>();
+		rezList.setPrefWidth(180);
 		rezList.getItems().addAll(new Rezept("Rindergulasch"),new Rezept(),new Rezept("Bratapfel"));
 	}
 	public String getName() {

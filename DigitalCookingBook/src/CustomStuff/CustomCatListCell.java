@@ -13,7 +13,7 @@ public class CustomCatListCell extends ListCell<Category> {
 	private Label labelName;
 	private GridPane gridPane;
 	public CustomCatListCell() {
-		circle = new Circle(25,Color.WHITE);
+		circle = new Circle(20,Color.WHITE);
 		circle.setStroke(Color.BLACK);
 		labelName = new Label();
 		labelName.setFont(new Font(20));
@@ -21,6 +21,7 @@ public class CustomCatListCell extends ListCell<Category> {
 		gridPane.add(circle,0,0);
 		gridPane.add(labelName,1,0);
 		gridPane.setHgap(15);
+		//setStyle("-fx-background-color:green;");
 	}
 	@Override
 	protected void updateItem(Category cat, boolean empty) {

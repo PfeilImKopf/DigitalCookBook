@@ -1,0 +1,4 @@
+#catList .scroll-bar:vertical {
+   -fx-padding: -100px;
+   -fx-opacity: 0;
+}
