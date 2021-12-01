@@ -2,9 +2,7 @@ package application;
 
 import java.net.URL;
 
-import CustomStuff.CustomStage;
 import javafx.application.Application;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
