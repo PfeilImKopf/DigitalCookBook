@@ -25,4 +25,7 @@ public CatScrollPane() {
 public ListView<Category> getCatList() {
 	return catList;
 }
+public int getSelectedIndex() {
+	return getCatList().getSelectionModel().getSelectedIndex();
+}
 }

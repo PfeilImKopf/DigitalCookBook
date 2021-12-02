@@ -25,4 +25,11 @@ public class Rezept {
 	public String toString() {
 		return name;
 	}
+	public ListView<Zutaten> getZutList() {
+		return zutList;
+	}
+	public ListView<Beschreibung> getBeschList() {
+		return beschList;
+	}
+	
 }

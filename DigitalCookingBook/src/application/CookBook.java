@@ -21,8 +21,9 @@ public class CookBook extends Application {
 			CatPane catPane = new CatPane(primaryStage);
 			root.setRight(catPane);
 			// everything else on the left
-			CenterPane centerRoot = new CenterPane();
-			root.setCenter(centerRoot);
+
+			CenterPane centerRoot = new CenterPane(catPane.getRez());
+			root.setLeft(centerRoot);
 			// make it visible
 			  URL url = this.getClass().getResource("CustCss.css");
 			    if (url == null) {

@@ -71,5 +71,8 @@ public class CatPane extends GridPane {
 		add(rezScrollPane,0,1,1,1);
 		add(controlBox,0,2,1,1);
 	}
+	public Rezept getRez() {
+		return rezScrollPane.getRez();
+	}
 
 }
