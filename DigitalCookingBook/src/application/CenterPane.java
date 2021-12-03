@@ -3,6 +3,7 @@ package application;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
@@ -15,8 +16,8 @@ public class CenterPane extends BorderPane {
 	public CenterPane(Rezept rez) {
 		TopControlPane topControl = new TopControlPane();
 		setTop(topControl);
-		centerRez = new RezMainPane(rez);
-		setCenter(centerRez);
+		centerRez = new RezMainPane(rez,topControl);
+		setCenter(new ScrollPane(centerRez));
 
 	}
 }

@@ -17,4 +17,8 @@ public class Beschreibung {
 		this.schrittNum=schrittNum;
 		this.text=text;
 	}
+	@Override
+	public String toString() {
+		return schrittNum+". "+text;
+	}
 }
