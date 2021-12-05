@@ -31,6 +31,7 @@ public class CustomCatListCell extends ListCell<Category> {
 			setText(null);
 			setGraphic(null);
 		} else {
+			setText(null);
 			labelName.setText(cat.getName());
 			setGraphic(gridPane);
 		}

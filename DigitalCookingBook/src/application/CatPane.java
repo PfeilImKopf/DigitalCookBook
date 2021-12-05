@@ -25,8 +25,10 @@ public class CatPane extends GridPane {
 		catScrollPane = new CatScrollPane();
 
 
-		currentCat = new Label("Rezepte aus der Kategorie:\n"+catScrollPane.getCatList().getSelectionModel().getSelectedItem().getName());
-		catScrollPane.getCatList().setOnMouseClicked(e->currentCat.setText("Rezepte aus der Kategorie:\n"+catScrollPane.getCatList().getSelectionModel().getSelectedItem().getName()));
+		currentCat = new Label("Rezepte aus der Kategorie:\n"+catScrollPane.getCatList()
+								.getSelectionModel().getSelectedItem().getName());
+		catScrollPane.getCatList().setOnMouseClicked(e->currentCat.setText("Rezepte aus der Kategorie:\n"
+								+catScrollPane.getCatList().getSelectionModel().getSelectedItem().getName()));
 
 		//Recipe List
 		rezScrollPane = new RezScrollPane(catScrollPane);
@@ -35,7 +37,6 @@ public class CatPane extends GridPane {
 		controlBox = new HBox();
 		controlBox.setMaxHeight(100);
 		catButton = new CustomButton("Neue Kategorie");
-		catButton.setAlignment(Pos.BOTTOM_CENTER);
 		controlBox.getChildren().addAll(catButton);
 		for (Node child : controlBox.getChildren()) {
 			HBox.setMargin(child, new Insets(5,5,5,5));

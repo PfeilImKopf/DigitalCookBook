@@ -22,7 +22,7 @@ public class CookBook extends Application {
 			root.setRight(catPane);
 			// everything else on the left
 
-			CenterPane centerRoot = new CenterPane(catPane.getRez());
+			CenterPane centerRoot = new CenterPane(catPane.getRez(),primaryStage);
 			root.setCenter(centerRoot);
 			// make it visible
 			  URL url = this.getClass().getResource("CustCss.css");
