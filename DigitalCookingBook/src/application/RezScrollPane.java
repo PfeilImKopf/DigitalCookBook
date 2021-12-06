@@ -1,5 +1,6 @@
 package application;
 
+import CustomStuff.CustomRezListCell;
 import javafx.beans.binding.Bindings;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
@@ -12,6 +13,7 @@ public class RezScrollPane extends ScrollPane {
 		aktList= catScrollPane.getCatList().getItems().get(catScrollPane.getSelectedIndex()).getRezList();
 		aktList.getSelectionModel().selectFirst();
 		akt = aktList.getItems().get(aktList.getSelectionModel().getSelectedIndex());
+		aktList.setCellFactory(e -> new CustomRezListCell());
 		Bindings.bindBidirectional(prefHeightProperty(), catScrollPane.getCatList().getItems().get(catScrollPane.getCatList().getSelectionModel().getSelectedIndex()).getRezList().prefHeightProperty());
 		setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
 		setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);

@@ -9,17 +9,17 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 
 public class CustomCatListCell extends ListCell<Category> {
-	private Circle circle;
+//	private Circle circle;
 	private Label labelName;
 	private GridPane gridPane;
 	public CustomCatListCell() {
-		circle = new Circle(20,Color.WHITE);
-		circle.setStroke(Color.BLACK);
+//		circle = new Circle(20,Color.WHITE);
+//		circle.setStroke(Color.BLACK);
 		labelName = new Label();
 		labelName.setFont(new Font(20));
 		gridPane = new GridPane();
-		gridPane.add(circle,0,0);
-		gridPane.add(labelName,1,0);
+//		gridPane.add(circle,0,0);
+		gridPane.add(labelName,0,0);
 		gridPane.setHgap(15);
 		//setStyle("-fx-background-color:green;");
 	}
