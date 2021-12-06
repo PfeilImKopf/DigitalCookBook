@@ -21,8 +21,10 @@ public class Rezept {
 	private Image image;
 	private ImageView imView;
 	private HBox info;
+	private VBox picAndTitle;
 	private VBox infoL;
 	private VBox infoR;
+	private Label title;
 	public Rezept() {
 		this("....");
 	}
@@ -61,8 +63,13 @@ public class Rezept {
 			HBox.setMargin(child, new Insets(10,10,10,10));	
 		}
 		info.setAlignment(Pos.CENTER);
-		
-		
+		picAndTitle = new VBox();
+		title = new Label(this.name);
+		title.setId("recTitle");
+		picAndTitle.getChildren().addAll(title,this.imView);
+			VBox.setMargin(title, new Insets(0,10,10,10));	
+			VBox.setMargin(this.imView, new Insets(0,10,0,10));	
+		picAndTitle.setAlignment(Pos.CENTER);
 
 	}
 	public ImageView getImView() {
@@ -83,6 +90,9 @@ public class Rezept {
 	}
 	public HBox getInfo() {
 		return info;
+	}
+	public VBox getPAT() {
+		return picAndTitle;
 	}
 	
 }
