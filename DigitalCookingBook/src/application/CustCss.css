@@ -2,3 +2,7 @@
    -fx-padding: -100px;
    -fx-opacity: 0;
 }
+#recTitle {
+	-fx-font-size: 40px;
+	-fx-underline: true;
+}
