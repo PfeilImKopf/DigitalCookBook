@@ -1,5 +1,6 @@
 package application;
 
+import RecipePackage.Rezept;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Button;

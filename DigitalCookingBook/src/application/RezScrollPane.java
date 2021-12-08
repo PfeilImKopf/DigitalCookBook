@@ -1,6 +1,7 @@
 package application;
 
 import CustomStuff.CustomRezListCell;
+import RecipePackage.Rezept;
 import javafx.beans.binding.Bindings;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;

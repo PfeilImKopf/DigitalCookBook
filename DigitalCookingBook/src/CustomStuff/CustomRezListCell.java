@@ -1,6 +1,6 @@
 package CustomStuff;
 
-import application.Rezept;
+import RecipePackage.Rezept;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.GridPane;

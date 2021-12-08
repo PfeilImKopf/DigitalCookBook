@@ -1,5 +1,6 @@
 package application;
 
+import RecipePackage.Rezept;
 import javafx.beans.binding.Bindings;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;

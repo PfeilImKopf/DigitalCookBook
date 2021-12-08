@@ -1,9 +1,11 @@
-package application;
+package RecipePackage;
 
 import java.io.File;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+import application.Beschreibung;
+import application.Zutaten;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
