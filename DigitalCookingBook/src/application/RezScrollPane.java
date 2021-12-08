@@ -1,14 +1,14 @@
 package application;
 
 import CustomStuff.CustomRezListCell;
-import RecipePackage.Rezept;
+import RecipePackage.Recipe;
 import javafx.beans.binding.Bindings;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 
 public class RezScrollPane extends ScrollPane {
-	private ListView<Rezept> aktList;
-	private Rezept akt;
+	private ListView<Recipe> aktList;
+	private Recipe akt;
 	public RezScrollPane(CatScrollPane catScrollPane) {
 		setPrefWidth(180);
 		aktList= catScrollPane.getCatList().getItems().get(catScrollPane.getSelectedIndex()).getRezList();
@@ -21,10 +21,10 @@ public class RezScrollPane extends ScrollPane {
 		setContent(aktList);
 
 	}
-	public Rezept getRez() {
+	public Recipe getRez() {
 		return akt;
 	}
-	public ListView<Rezept> getRecipeList() {
+	public ListView<Recipe> getRecipeList() {
 		return aktList;
 	}
 }

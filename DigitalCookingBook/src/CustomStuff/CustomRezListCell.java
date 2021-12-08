@@ -1,6 +1,6 @@
 package CustomStuff;
 
-import RecipePackage.Rezept;
+import RecipePackage.Recipe;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.GridPane;
@@ -8,7 +8,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 
-public class CustomRezListCell extends ListCell<Rezept> {
+public class CustomRezListCell extends ListCell<Recipe> {
 	private Circle circle1;
 	private Circle circle2;
 	private Circle circle3;
@@ -33,7 +33,7 @@ public class CustomRezListCell extends ListCell<Rezept> {
 		gridPane.setHgap(5);
 	}
 	@Override
-	protected void updateItem(Rezept rez, boolean empty) {
+	protected void updateItem(Recipe rez, boolean empty) {
 		super.updateItem(rez, empty);
 		
 		if (empty || rez == null) {

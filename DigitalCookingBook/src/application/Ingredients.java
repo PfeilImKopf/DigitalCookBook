@@ -1,13 +1,13 @@
 package application;
 
-public class Zutaten {
+public class Ingredients {
 	private double menge;
 	private String einheit;
 	private String name;
-	public Zutaten() {
+	public Ingredients() {
 		this(0.0,"","");
 	}
-	public Zutaten(double menge, String einheit, String name) {
+	public Ingredients(double menge, String einheit, String name) {
 		this.menge=menge;
 		this.einheit=einheit;
 		this.name=name;

@@ -1,6 +1,6 @@
 package application;
 
-public class Beschreibung {
+public class Instructions {
 	private final int schrittNum;
 	private String text;
 	
@@ -13,7 +13,7 @@ public class Beschreibung {
 	public int getSchrittNum() {
 		return schrittNum;
 	}
-	public Beschreibung(int schrittNum,String text) {
+	public Instructions(int schrittNum,String text) {
 		this.schrittNum=schrittNum;
 		this.text=text;
 	}

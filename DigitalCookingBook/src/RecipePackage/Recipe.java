@@ -4,8 +4,8 @@ import java.io.File;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import application.Beschreibung;
-import application.Zutaten;
+import application.Instructions;
+import application.Ingredients;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -22,10 +22,10 @@ import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
-public class Rezept extends BorderPane {
+public class Recipe extends BorderPane {
 	private String name;
-	private ListView<Zutaten> zutList;
-	private ListView<Beschreibung> beschList;
+	private ListView<Ingredients> zutList;
+	private ListView<Instructions> beschList;
 	private Image image;
 	private ImageView imView;
 	private HBox info;
@@ -37,17 +37,17 @@ public class Rezept extends BorderPane {
 	private ScrollPane recScroll;
 	private BorderPane recBorder;
 	private StackPane imPane;
-	public Rezept() {
+	public Recipe() {
 		this("....");
 	}
-	public Rezept(String name) {
+	public Recipe(String name) {
 		this.name = name;
-		zutList = new ListView<Zutaten>();
+		zutList = new ListView<Ingredients>();
 		zutList.setMaxWidth(200);
-		zutList.getItems().add(new Zutaten(0, "ml", "Wasser"));
-		beschList = new ListView<Beschreibung>();
+		zutList.getItems().add(new Ingredients(0, "ml", "Wasser"));
+		beschList = new ListView<Instructions>();
 		beschList.setMaxWidth(400);
-		beschList.getItems().add(new Beschreibung(1,"Wasser in Kanne kippen"));
+		beschList.getItems().add(new Instructions(1,"Wasser in Kanne kippen"));
 		  URL url = this.getClass().getResource("Tee.png");
 		    if (url == null) {
 		        System.out.println("Resource (png) not found. Aborting.");
@@ -116,10 +116,10 @@ public class Rezept extends BorderPane {
 	public String toString() {
 		return name;
 	}
-	public ListView<Zutaten> getZutList() {
+	public ListView<Ingredients> getZutList() {
 		return zutList;
 	}
-	public ListView<Beschreibung> getBeschList() {
+	public ListView<Instructions> getBeschList() {
 		return beschList;
 	}
 	public HBox getInfo() {

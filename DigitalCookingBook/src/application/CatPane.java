@@ -2,7 +2,7 @@ package application;
 
 
 import CustomStuff.CustomButton;
-import RecipePackage.Rezept;
+import RecipePackage.Recipe;
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -74,10 +74,10 @@ public class CatPane extends GridPane {
 		add(rezScrollPane,0,1,1,1);
 		add(controlBox,0,2,1,1);
 	}
-	public Rezept getRecipe() {
+	public Recipe getRecipe() {
 		return rezScrollPane.getRez();
 	}
-	public ListView<Rezept> getRecList() {
+	public ListView<Recipe> getRecList() {
 		return rezScrollPane.getRecipeList();
 	}
 
