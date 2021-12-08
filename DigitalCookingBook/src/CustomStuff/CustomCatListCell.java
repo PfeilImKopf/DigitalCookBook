@@ -1,12 +1,12 @@
 package CustomStuff;
 
-import application.Category;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
+import recipeAndCategoryPackage.Category;
 
 public class CustomCatListCell extends ListCell<Category> {
 //	private Circle circle;

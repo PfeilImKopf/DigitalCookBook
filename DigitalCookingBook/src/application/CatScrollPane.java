@@ -4,6 +4,7 @@ import CustomStuff.CustomCatListCell;
 import javafx.beans.binding.Bindings;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
+import recipeAndCategoryPackage.Category;
 
 public class CatScrollPane extends ScrollPane {
 	private ListView<Category> catList;

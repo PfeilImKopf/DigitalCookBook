@@ -1,4 +1,4 @@
-package application;
+package recipeAndCategoryPackage;
 
 public class Instructions {
 	private final int schrittNum;

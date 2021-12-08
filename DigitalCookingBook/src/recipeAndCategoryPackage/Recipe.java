@@ -1,11 +1,9 @@
-package RecipePackage;
+package recipeAndCategoryPackage;
 
 import java.io.File;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import application.Instructions;
-import application.Ingredients;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -96,6 +94,8 @@ public class Recipe extends BorderPane {
         imPane = new StackPane();
         imPane.getChildren().add(imView);
         recScroll.setFitToWidth(true);
+        recScroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        recScroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         recBorder = new BorderPane();
         recBorder.setTop(imPane);
         recBorder.setCenter(this.beschList);

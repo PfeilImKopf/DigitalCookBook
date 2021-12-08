@@ -1,6 +1,5 @@
-package application;
+package recipeAndCategoryPackage;
 
-import RecipePackage.Recipe;
 import javafx.scene.control.ListView;
 
 public class Category {

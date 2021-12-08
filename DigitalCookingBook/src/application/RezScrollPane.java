@@ -1,10 +1,10 @@
 package application;
 
 import CustomStuff.CustomRezListCell;
-import RecipePackage.Recipe;
 import javafx.beans.binding.Bindings;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
+import recipeAndCategoryPackage.Recipe;
 
 public class RezScrollPane extends ScrollPane {
 	private ListView<Recipe> aktList;

@@ -1,4 +1,4 @@
-package application;
+package recipeAndCategoryPackage;
 
 public class Ingredients {
 	private double menge;

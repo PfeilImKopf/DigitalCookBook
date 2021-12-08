@@ -1,12 +1,12 @@
 package CustomStuff;
 
-import RecipePackage.Recipe;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
+import recipeAndCategoryPackage.Recipe;
 
 public class CustomRezListCell extends ListCell<Recipe> {
 	private Circle circle1;

@@ -2,7 +2,6 @@ package application;
 
 
 import CustomStuff.CustomButton;
-import RecipePackage.Recipe;
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -15,6 +14,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
+import recipeAndCategoryPackage.Recipe;
 
 
 public class CatPane extends GridPane {
