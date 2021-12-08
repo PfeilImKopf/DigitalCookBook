@@ -1,9 +1,57 @@
 #catList .scroll-bar:vertical {
    -fx-padding: -100px;
    -fx-opacity: 0;
+} 
+#catList .list-cell:odd {
+	-fx-background-color:#00b894;
 }
+#catList .list-cell:even {
+	-fx-background-color:#00cec9;
+}
+#catList .list-cell:selected:odd,
+#catList .list-cell:selected:even {
+    -fx-background-color: -fx-background;
+}
+#catList .list-cell:empty {
+    -fx-background-color: white;
+}
+
+
+#recList .scroll-bar:vertical {
+   -fx-padding: -100px;
+   -fx-opacity: 0;
+} 
+#recList .list-cell:odd {
+	-fx-background-color:#0984e3;
+}
+#recList .list-cell:even {
+	-fx-background-color:#ff7675;
+}
+#recList .list-cell:selected:odd, 
+#recList .list-cell:selected:even {
+    -fx-background-color: -fx-background;
+}
+#recList .list-cell:empty {
+    -fx-background-color: white;
+}
+
+
 #recTitle {
 	-fx-font-size: 40px;
 	-fx-underline: true;
-	-fx-background-color:green;
 }
+#titleBox {
+	-fx-background-color:#2980b9;
+}
+#topControl {
+	-fx-background-color:#8e44ad;
+}
+#recipeScrollPane {
+	
+}
+#recipeBorder {
+	-fx-background-color:#1abc9c; 
+}
+#recipeLeftGrid {
+	-fx-background-color:#e67e22;
+} 

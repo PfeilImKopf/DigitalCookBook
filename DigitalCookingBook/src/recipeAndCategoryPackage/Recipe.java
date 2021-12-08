@@ -35,6 +35,7 @@ public class Recipe extends BorderPane {
 	private ScrollPane recScroll;
 	private BorderPane recBorder;
 	private StackPane imPane;
+	private StackPane titleBox;
 	public Recipe() {
 		this("....");
 	}
@@ -79,18 +80,23 @@ public class Recipe extends BorderPane {
 
         leftGrid = new GridPane();
 		RowConstraints row1 = new RowConstraints();
-		row1.setPercentHeight(38.2);
+		//row1.setPercentHeight(38.2);
+		row1.setMaxHeight(200);
+		row1.setMinHeight(200);
 		RowConstraints row2 = new RowConstraints();
 		row2.setPercentHeight(61.8);
 		leftGrid.getRowConstraints().addAll(row1,row2);
         leftGrid.add(info, 0, 0);
         leftGrid.add(zutList, 0, 1);
-        leftGrid.setStyle("-fx-background-color:red;");
+        leftGrid.setId("recipeLeftGrid");
 		setLeft(leftGrid);
 		centerPane = new BorderPane();
-        centerPane.setTop(title);
-        BorderPane.setAlignment(title, Pos.CENTER);
+		titleBox = new StackPane();
+		titleBox.getChildren().add(title);
+		titleBox.setId("titleBox");
+        centerPane.setTop(titleBox);
         recScroll = new ScrollPane();
+        recScroll.setId("recipeScrollPane");
         imPane = new StackPane();
         imPane.getChildren().add(imView);
         recScroll.setFitToWidth(true);
@@ -98,6 +104,7 @@ public class Recipe extends BorderPane {
         recScroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         recBorder = new BorderPane();
         recBorder.setTop(imPane);
+        recBorder.setId("recipeBorder");
         recBorder.setCenter(this.beschList);
         BorderPane.setMargin(beschList, new Insets(50,5,50,5));
         recScroll.setContent(recBorder);
