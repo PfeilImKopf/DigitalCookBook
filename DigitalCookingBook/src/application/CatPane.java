@@ -9,6 +9,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -17,11 +18,11 @@ import javafx.stage.Stage;
 
 
 public class CatPane extends GridPane {
-	CatScrollPane catScrollPane;
-	RezScrollPane rezScrollPane;
-	Button catButton;
-	Label currentCat;
-	HBox controlBox ;
+	private CatScrollPane catScrollPane;
+	private RezScrollPane rezScrollPane;
+	private Button catButton;
+	private Label currentCat;
+	private HBox controlBox ;
 	public CatPane(Stage parent) {
 		catScrollPane = new CatScrollPane();
 
@@ -73,8 +74,11 @@ public class CatPane extends GridPane {
 		add(rezScrollPane,0,1,1,1);
 		add(controlBox,0,2,1,1);
 	}
-	public Rezept getRez() {
+	public Rezept getRecipe() {
 		return rezScrollPane.getRez();
+	}
+	public ListView<Rezept> getRecList() {
+		return rezScrollPane.getRecipeList();
 	}
 
 }

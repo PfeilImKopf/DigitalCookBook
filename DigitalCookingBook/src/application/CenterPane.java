@@ -14,12 +14,15 @@ import javafx.stage.Stage;
 
 public class CenterPane extends BorderPane {
 	private RezMainPane centerRez;
-
-	public CenterPane(Rezept rez,Stage parent) {
+	private Rezept recipe;
+	public CenterPane(Rezept recipe,Stage parent) {
 		TopControlPane topControl = new TopControlPane();
 		setTop(topControl);
 		//centerRez = new RezMainPane(rez,topControl,parent);
-		setCenter(rez);
-
+		setCenter(recipe);
+	}
+	public void setRecipe(Rezept recipe) {
+		this.recipe=recipe;
+		setCenter(this.recipe);
 	}
 }

@@ -19,8 +19,12 @@ public class RezScrollPane extends ScrollPane {
 		setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
 		setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 		setContent(aktList);
+
 	}
 	public Rezept getRez() {
 		return akt;
+	}
+	public ListView<Rezept> getRecipeList() {
+		return aktList;
 	}
 }

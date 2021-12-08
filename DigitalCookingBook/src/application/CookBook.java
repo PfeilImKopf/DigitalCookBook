@@ -21,24 +21,27 @@ public class CookBook extends Application {
 			CatPane catPane = new CatPane(primaryStage);
 			root.setRight(catPane);
 			// everything else on the left
-
-			CenterPane centerRoot = new CenterPane(catPane.getRez(),primaryStage);
+		
+			CenterPane centerRoot = new CenterPane(catPane.getRecipe(),primaryStage);
+			catPane.getRecList().setOnMouseClicked(e-> {
+				centerRoot.setRecipe(catPane.getRecList().getSelectionModel().getSelectedItem());
+			});
 			root.setCenter(centerRoot);
 			// make it visible
-			  URL url = this.getClass().getResource("CustCss.css");
-			    if (url == null) {
-			        System.out.println("Resource not found. Aborting.");
-			        System.exit(-1);
-			    }
-			    String css = url.toExternalForm(); 
-			   scene.getStylesheets().add(css);
-		
+			URL url = this.getClass().getResource("CustCss.css");
+			if (url == null) {
+				System.out.println("Resource not found. Aborting.");
+				System.exit(-1);
+			}
+			String css = url.toExternalForm(); 
+			scene.getStylesheets().add(css);
+			
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		Application.launch(args);
 	}
