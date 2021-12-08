@@ -13,6 +13,7 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.RowConstraints;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import recipeAndCategoryPackage.Recipe;
 
@@ -23,9 +24,11 @@ public class CatPane extends GridPane {
 	private Button catButton;
 	private Label currentCat;
 	private HBox controlBox ;
+	private StackPane labelPane;
 	public CatPane(Stage parent) {
+		setId("catPane");
 		catScrollPane = new CatScrollPane();
-
+		GridPane.setMargin(catScrollPane, new Insets(0,0,0,10));
 
 		currentCat = new Label("Rezepte aus der Kategorie:\n"+catScrollPane.getCatList()
 								.getSelectionModel().getSelectedItem().getName());
@@ -34,16 +37,18 @@ public class CatPane extends GridPane {
 
 		//Recipe List
 		rezScrollPane = new RezScrollPane(catScrollPane);
-
+		GridPane.setMargin(rezScrollPane, new Insets(0,0,0,10));
+		
 
 		controlBox = new HBox();
+		controlBox.setId("recipeControlBox");
 		controlBox.setMaxHeight(100);
 		catButton = new CustomButton("Neue Kategorie");
 		controlBox.getChildren().addAll(catButton);
 		for (Node child : controlBox.getChildren()) {
 			HBox.setMargin(child, new Insets(5,5,5,5));
 		}
-
+		GridPane.setMargin(controlBox, new Insets(0,0,10,10));
 		//Listener for stage property to scale the Catlist and rezList
 		parent.heightProperty().addListener((obs,oldH,newH) -> {
 			catScrollPane.setPrefHeight(newH.doubleValue());
@@ -53,6 +58,11 @@ public class CatPane extends GridPane {
 			catScrollPane.setPrefHeight(parent.getHeight());
 			rezScrollPane.setPrefHeight(parent.getHeight()-controlBox.getHeight()-48);
 		});
+		labelPane = new StackPane();
+		labelPane.setId("labelPane");
+		labelPane.getChildren().add(currentCat);
+		GridPane.setMargin(labelPane, new Insets(10,0,0,10));
+		
 		ColumnConstraints col1 = new ColumnConstraints();
 		col1.setMaxWidth(180);
 		ColumnConstraints col2 = new ColumnConstraints();
@@ -69,7 +79,7 @@ public class CatPane extends GridPane {
 		row3.setMinHeight(48);
 		getColumnConstraints().addAll(col1,col2);
 		getRowConstraints().addAll(row1,row2,row3);
-		add(currentCat,0,0,1,1);
+		add(labelPane,0,0,1,1);
 		add(catScrollPane,1,0,1,3);
 		add(rezScrollPane,0,1,1,1);
 		add(controlBox,0,2,1,1);

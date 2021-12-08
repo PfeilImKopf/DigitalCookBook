@@ -13,10 +13,23 @@
     -fx-background-color: -fx-background;
 }
 #catList .list-cell:empty {
-    -fx-background-color: white;
+    -fx-background-color: #d8bfd4;
 }
 
 
+#catPane {
+	-fx-background-color:#f0d4ec;
+}
+#labelPane {
+	-fx-border-radius:30 30 0 0;
+	-fx-background-radius:30 30 0 0;
+	-fx-background-color:#d8bfd4;
+}
+#recipeControlBox {
+	-fx-border-radius:0 0 30 30;
+	-fx-background-radius:0 0 30 30;
+	-fx-background-color:#d8bfd4;
+}
 #recList .scroll-bar:vertical {
    -fx-padding: -100px;
    -fx-opacity: 0;
@@ -32,7 +45,7 @@
     -fx-background-color: -fx-background;
 }
 #recList .list-cell:empty {
-    -fx-background-color: white;
+    -fx-background-color: #d8bfd4;
 }
 
 
