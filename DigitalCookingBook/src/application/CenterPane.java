@@ -13,7 +13,6 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class CenterPane extends BorderPane {
-	private RezMainPane centerRez;
 	private Rezept recipe;
 	public CenterPane(Rezept recipe,Stage parent) {
 		TopControlPane topControl = new TopControlPane();
