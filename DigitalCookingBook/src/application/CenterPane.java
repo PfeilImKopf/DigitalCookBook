@@ -17,8 +17,8 @@ public class CenterPane extends BorderPane {
 	public CenterPane(Rezept rez,Stage parent) {
 		TopControlPane topControl = new TopControlPane();
 		setTop(topControl);
-		centerRez = new RezMainPane(rez,topControl,parent);
-		setCenter(centerRez);
+		//centerRez = new RezMainPane(rez,topControl,parent);
+		setCenter(rez);
 
 	}
 }

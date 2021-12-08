@@ -5,4 +5,5 @@
 #recTitle {
 	-fx-font-size: 40px;
 	-fx-underline: true;
+	-fx-background-color:green;
 }

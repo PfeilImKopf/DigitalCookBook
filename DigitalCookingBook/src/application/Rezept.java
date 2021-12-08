@@ -9,22 +9,32 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.RowConstraints;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
-public class Rezept {
+public class Rezept extends BorderPane {
 	private String name;
 	private ListView<Zutaten> zutList;
 	private ListView<Beschreibung> beschList;
 	private Image image;
 	private ImageView imView;
 	private HBox info;
-	private VBox picAndTitle;
 	private VBox infoL;
 	private VBox infoR;
 	private Label title;
+	private GridPane leftGrid;
+	private BorderPane centerPane;
+	private ScrollPane recScroll;
+	private BorderPane recBorder;
+	private StackPane imPane;
 	public Rezept() {
 		this("....");
 	}
@@ -63,14 +73,36 @@ public class Rezept {
 			HBox.setMargin(child, new Insets(10,10,10,10));	
 		}
 		info.setAlignment(Pos.CENTER);
-		picAndTitle = new VBox();
+
 		title = new Label(this.name);
 		title.setId("recTitle");
-		picAndTitle.getChildren().addAll(title,this.imView);
-			VBox.setMargin(title, new Insets(0,10,10,10));	
-			VBox.setMargin(this.imView, new Insets(0,10,0,10));	
-		picAndTitle.setAlignment(Pos.CENTER);
 
+        leftGrid = new GridPane();
+		RowConstraints row1 = new RowConstraints();
+		row1.setPercentHeight(38.2);
+		RowConstraints row2 = new RowConstraints();
+		row2.setPercentHeight(61.8);
+		leftGrid.getRowConstraints().addAll(row1,row2);
+        leftGrid.add(info, 0, 0);
+        leftGrid.add(zutList, 0, 1);
+        leftGrid.setStyle("-fx-background-color:red;");
+		setLeft(leftGrid);
+		centerPane = new BorderPane();
+        centerPane.setTop(title);
+        BorderPane.setAlignment(title, Pos.CENTER);
+        recScroll = new ScrollPane();
+        imPane = new StackPane();
+        imPane.getChildren().add(imView);
+        recScroll.setFitToWidth(true);
+        recBorder = new BorderPane();
+        recBorder.setTop(imPane);
+        recBorder.setCenter(this.beschList);
+        BorderPane.setMargin(beschList, new Insets(50,5,50,5));
+        recScroll.setContent(recBorder);
+        centerPane.setCenter(recScroll);
+        setCenter(centerPane);
+		
+		
 	}
 	public ImageView getImView() {
 		return imView;
@@ -91,8 +123,6 @@ public class Rezept {
 	public HBox getInfo() {
 		return info;
 	}
-	public VBox getPAT() {
-		return picAndTitle;
-	}
+
 	
 }
