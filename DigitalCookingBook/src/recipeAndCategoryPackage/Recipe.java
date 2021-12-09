@@ -42,6 +42,7 @@ public class Recipe extends BorderPane {
 	public Recipe(String name) {
 		this.name = name;
 		zutList = new ListView<Ingredients>();
+		zutList.setId("zutList");
 		zutList.setMaxWidth(200);
 		zutList.getItems().add(new Ingredients(0, "ml", "Wasser"));
 		beschList = new ListView<Instructions>();
@@ -56,6 +57,8 @@ public class Recipe extends BorderPane {
 		   image = new Image(png);
 		imView = new ImageView(image);
 		info = new HBox();
+		info.setId("info");
+		GridPane.setMargin(info, new Insets(20,20,20,20));
 		infoL = new VBox();
 		infoR = new VBox();
 		
@@ -89,6 +92,7 @@ public class Recipe extends BorderPane {
         leftGrid.add(info, 0, 0);
         leftGrid.add(zutList, 0, 1);
         leftGrid.setId("recipeLeftGrid");
+        GridPane.setMargin(zutList, new Insets(5,20,5,20));
 		setLeft(leftGrid);
 		centerPane = new BorderPane();
 		titleBox = new StackPane();

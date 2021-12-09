@@ -17,10 +17,7 @@
 #catList .list-cell:empty {
     -fx-background-color:#f0d4ec;
 }
-#stackCatPane {
-		-fx-background-insets: 10;
-	-fx-effect: dropshadow(one-pass-box, grey, 10, 0.7, 0, 0);
-}
+
 #catPane {
 	-fx-background-color:#d8bfd4;
 
@@ -30,6 +27,11 @@
 	-fx-border-radius:30 30 0 0;
 	-fx-background-radius:30 30 0 0;
 	-fx-background-color:#f0d4ec;
+}
+#info {
+	-fx-background-color:#f0d4ec;
+	-fx-background-insets: 1;
+	-fx-effect: dropshadow(one-pass-box, grey, 10, 0.7, 0, 0);
 }
 #recipeControlBox {
 	-fx-border-radius:0 0 30 30;
@@ -73,5 +75,15 @@
 	-fx-background-color:#f0f8fc; 
 }
 #recipeLeftGrid {
-	-fx-background-color:#e67e22;
+	-fx-background-color:#e6dce3;
+
+	
 } 
+#zutList .list-cell:empty {
+    -fx-background-color:#f0d4ec;
+
+}
+#zutList {
+	    	-fx-background-insets: 1;
+	-fx-effect: dropshadow(one-pass-box, grey, 10, 0.7, 0, 0);
+}

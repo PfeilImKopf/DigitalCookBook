@@ -34,7 +34,7 @@ public class CookBook extends Application {
 			StackPane stackCatPane = new StackPane();
 			stackCatPane.getChildren().add(catPane);
 			stackCatPane.setId("stackCatPane");
-			BorderPane.setMargin(stackCatPane, new Insets(0,0,0,1));
+			//BorderPane.setMargin(stackCatPane, new Insets(0,0,0,1));
 			root.setRight(stackCatPane);
 			// everything else on the left
 		
