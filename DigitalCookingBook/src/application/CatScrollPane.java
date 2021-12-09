@@ -2,6 +2,7 @@ package application;
 
 import CustomStuff.CustomCatListCell;
 import javafx.beans.binding.Bindings;
+import javafx.geometry.Insets;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import recipeAndCategoryPackage.Category;
@@ -10,6 +11,7 @@ public class CatScrollPane extends ScrollPane {
 	private ListView<Category> catList;
 public CatScrollPane() {
 	//Category List 
+	setId("catListScroll");
 	setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
     setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 	catList=new ListView<Category>();

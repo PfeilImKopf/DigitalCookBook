@@ -28,7 +28,7 @@ public class CatPane extends GridPane {
 	public CatPane(Stage parent) {
 		setId("catPane");
 		catScrollPane = new CatScrollPane();
-		GridPane.setMargin(catScrollPane, new Insets(0,0,0,10));
+		GridPane.setMargin(catScrollPane, new Insets(15,15,15,15));
 
 		currentCat = new Label("Rezepte aus der Kategorie:\n"+catScrollPane.getCatList()
 								.getSelectionModel().getSelectedItem().getName());
@@ -72,17 +72,25 @@ public class CatPane extends GridPane {
 		row1.setMaxHeight(48);
 		row1.setMinHeight(48);
 		RowConstraints row2 = new RowConstraints();
-		Bindings.bindBidirectional(row2.prefHeightProperty(),rezScrollPane.prefHeightProperty());
+		row2.setPrefHeight(48);
+		row2.setMaxHeight(48);
+		row2.setMinHeight(48);
 		RowConstraints row3 = new RowConstraints();
-		row3.setPrefHeight(48);
-		row3.setMaxHeight(48);
-		row3.setMinHeight(48);
+		Bindings.bindBidirectional(row3.prefHeightProperty(),rezScrollPane.prefHeightProperty());
+		RowConstraints row4 = new RowConstraints();
+		row4.setPrefHeight(48);
+		row4.setMaxHeight(48);
+		row4.setMinHeight(48);
+		RowConstraints row5 = new RowConstraints();
+		row5.setPrefHeight(48);
+		row5.setMaxHeight(48);
+		row5.setMinHeight(48);
 		getColumnConstraints().addAll(col1,col2);
-		getRowConstraints().addAll(row1,row2,row3);
-		add(labelPane,0,0,1,1);
-		add(catScrollPane,1,0,1,3);
-		add(rezScrollPane,0,1,1,1);
-		add(controlBox,0,2,1,1);
+		getRowConstraints().addAll(row1,row2,row3,row4,row5);
+		add(labelPane,0,1,1,1);
+		add(catScrollPane,1,0,1,5);
+		add(rezScrollPane,0,2,1,1);
+		add(controlBox,0,3,1,1);
 	}
 	public Recipe getRecipe() {
 		return rezScrollPane.getRez();

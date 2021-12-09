@@ -3,9 +3,13 @@ package application;
 import java.net.URL;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class CookBook extends Application {
 	@Override
@@ -18,16 +22,6 @@ public class CookBook extends Application {
 			primaryStage.setMinWidth(1280);
 			primaryStage.setMinHeight(720);
 			//category list on the right		
-			CatPane catPane = new CatPane(primaryStage);
-			root.setRight(catPane);
-			// everything else on the left
-		
-			CenterPane centerRoot = new CenterPane(catPane.getRecipe(),primaryStage);
-			catPane.getRecList().setOnMouseClicked(e-> {
-				centerRoot.setRecipe(catPane.getRecList().getSelectionModel().getSelectedItem());
-			});
-			root.setCenter(centerRoot);
-			// make it visible
 			URL url = this.getClass().getResource("CustCss.css");
 			if (url == null) {
 				System.out.println("Resource not found. Aborting.");
@@ -36,6 +30,22 @@ public class CookBook extends Application {
 			String css = url.toExternalForm(); 
 			scene.getStylesheets().add(css);
 			
+			CatPane catPane = new CatPane(primaryStage);
+			StackPane stackCatPane = new StackPane();
+			stackCatPane.getChildren().add(catPane);
+			stackCatPane.setId("stackCatPane");
+			BorderPane.setMargin(stackCatPane, new Insets(0,0,0,1));
+			root.setRight(stackCatPane);
+			// everything else on the left
+		
+			CenterPane centerRoot = new CenterPane(catPane.getRecipe(),primaryStage);
+			catPane.getRecList().setOnMouseClicked(e-> {
+				centerRoot.setRecipe(catPane.getRecList().getSelectionModel().getSelectedItem());
+			});
+			root.setCenter(centerRoot);
+			// make it visible
+
+
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
