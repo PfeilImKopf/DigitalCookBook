@@ -27,20 +27,32 @@ public class CatPane extends GridPane {
 	private StackPane labelPane;
 	public CatPane(Stage parent) {
 		setId("catPane");
+		//Category list
 		catScrollPane = new CatScrollPane();
-		GridPane.setMargin(catScrollPane, new Insets(15,15,15,15));
-
+		//Recipe List
+		rezScrollPane = new RezScrollPane(catScrollPane);
+		//Controlbox at the bottom of the recipe list
+		controlBox = new HBox();
+		//labelPane on top of the recipe List
 		currentCat = new Label("Rezepte aus der Kategorie:\n"+catScrollPane.getCatList()
-								.getSelectionModel().getSelectedItem().getName());
+		.getSelectionModel().getSelectedItem().getName());
+		labelPane = new StackPane();
+		
+		//setting Insets of all the elements of the CatPane
+		GridPane.setMargin(catScrollPane, new Insets(15,15,15,15));
+		GridPane.setMargin(rezScrollPane, new Insets(0,0,0,10));
+		GridPane.setMargin(controlBox, new Insets(0,0,10,10));
+		GridPane.setMargin(labelPane, new Insets(10,0,0,10));
+		
+		
+		//Listener for updating the current label
 		catScrollPane.getCatList().setOnMouseClicked(e->currentCat.setText("Rezepte aus der Kategorie:\n"
 								+catScrollPane.getCatList().getSelectionModel().getSelectedItem().getName()));
 
-		//Recipe List
-		rezScrollPane = new RezScrollPane(catScrollPane);
-		GridPane.setMargin(rezScrollPane, new Insets(0,0,0,10));
-		
 
-		controlBox = new HBox();
+
+		
+		//finishing the controlBox on the bottom of rezList
 		controlBox.setId("recipeControlBox");
 		controlBox.setMaxHeight(100);
 		catButton = new CustomButton("Neue Kategorie");
@@ -48,7 +60,12 @@ public class CatPane extends GridPane {
 		for (Node child : controlBox.getChildren()) {
 			HBox.setMargin(child, new Insets(5,5,5,5));
 		}
-		GridPane.setMargin(controlBox, new Insets(0,0,10,10));
+
+		//finishing the labelPane
+		labelPane.setId("labelPane");
+		labelPane.getChildren().add(currentCat);
+
+		
 		//Listener for stage property to scale the Catlist and rezList
 		parent.heightProperty().addListener((obs,oldH,newH) -> {
 			catScrollPane.setPrefHeight(newH.doubleValue());
@@ -58,11 +75,8 @@ public class CatPane extends GridPane {
 			catScrollPane.setPrefHeight(parent.getHeight());
 			rezScrollPane.setPrefHeight(parent.getHeight()-controlBox.getHeight()-48);
 		});
-		labelPane = new StackPane();
-		labelPane.setId("labelPane");
-		labelPane.getChildren().add(currentCat);
-		GridPane.setMargin(labelPane, new Insets(10,0,0,10));
-		
+
+		//all Constraints for the GridPane of the CatPane itself
 		ColumnConstraints col1 = new ColumnConstraints();
 		col1.setMaxWidth(180);
 		ColumnConstraints col2 = new ColumnConstraints();

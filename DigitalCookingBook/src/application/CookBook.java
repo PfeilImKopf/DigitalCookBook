@@ -21,7 +21,25 @@ public class CookBook extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setMinWidth(1280);
 			primaryStage.setMinHeight(720);
-			//category list on the right		
+		
+			//category and recipe list on the right
+			CatPane catPane = new CatPane(primaryStage);
+			StackPane stackCatPane = new StackPane();
+			stackCatPane.getChildren().add(catPane);
+			stackCatPane.setId("stackCatPane");
+			root.setRight(stackCatPane);
+			
+			// everything else on the left/center
+			CenterPane centerRoot = new CenterPane(catPane.getRecipe(),primaryStage);
+			catPane.getRecList().setOnMouseClicked(e-> {
+				centerRoot.setRecipe(catPane.getRecList().getSelectionModel().getSelectedItem());
+			});
+			root.setCenter(centerRoot);
+			
+			// make it visible
+			primaryStage.show();
+			
+			// include stylesheet
 			URL url = this.getClass().getResource("CustCss.css");
 			if (url == null) {
 				System.out.println("Resource not found. Aborting.");
@@ -29,24 +47,6 @@ public class CookBook extends Application {
 			}
 			String css = url.toExternalForm(); 
 			scene.getStylesheets().add(css);
-			
-			CatPane catPane = new CatPane(primaryStage);
-			StackPane stackCatPane = new StackPane();
-			stackCatPane.getChildren().add(catPane);
-			stackCatPane.setId("stackCatPane");
-			//BorderPane.setMargin(stackCatPane, new Insets(0,0,0,1));
-			root.setRight(stackCatPane);
-			// everything else on the left
-		
-			CenterPane centerRoot = new CenterPane(catPane.getRecipe(),primaryStage);
-			catPane.getRecList().setOnMouseClicked(e-> {
-				centerRoot.setRecipe(catPane.getRecList().getSelectionModel().getSelectedItem());
-			});
-			root.setCenter(centerRoot);
-			// make it visible
-
-
-			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

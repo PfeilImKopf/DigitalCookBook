@@ -84,6 +84,6 @@
 
 }
 #zutList {
-	    	-fx-background-insets: 1;
+	-fx-background-insets: 1;
 	-fx-effect: dropshadow(one-pass-box, grey, 10, 0.7, 0, 0);
 }
