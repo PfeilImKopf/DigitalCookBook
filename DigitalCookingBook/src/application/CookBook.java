@@ -21,7 +21,7 @@ public class CookBook extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setMinWidth(1280);
 			primaryStage.setMinHeight(720);
-		
+			primaryStage.setTitle("Digitales Kochbuch");
 			//category and recipe list on the right
 			CatPane catPane = new CatPane(primaryStage);
 			StackPane stackCatPane = new StackPane();
