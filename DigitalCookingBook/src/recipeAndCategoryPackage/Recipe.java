@@ -3,11 +3,14 @@ package recipeAndCategoryPackage;
 import java.io.File;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.concurrent.Callable;
 
 import CustomStuff.CustomCatListCell;
 import CustomStuff.CustomIngListCell;
+import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -60,25 +63,25 @@ public class Recipe extends BorderPane {
 		ColumnConstraints bCol2 = new ColumnConstraints();
 		bCol2.setPercentWidth(90);
 		beschList.getColumnConstraints().addAll(bCol1,bCol2);
-		beschList.setVgap(10);
+		beschList.setVgap(120);
 		for (int i = 0; i<10;i++) {
 			RowConstraints bRow = new RowConstraints();
-			bRow.setFillHeight(true);
 			beschList.getRowConstraints().add(bRow);
-			TextArea bCount = new TextArea(i+1+".");
-			bCount.setEditable(false);
-			beschList.add(bCount,0,i);
-			TextArea bInst = new TextArea("Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
+			Label lCount = new Label(i+1+".");
+			lCount.setId("IngLabel");
+			GridPane.setValignment(lCount,VPos.TOP);
+			beschList.add(lCount,0,i);
+			Label lInst = new Label("Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
 					+ " sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut "
 					+ "enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut"
 					+ " aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit"
 					+ " in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur"
 					+ " sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt"
 					+ " mollit anim id est laborum.");
-					bInst.setWrapText(true);
-					bInst.setEditable(false);
-			
-			beschList.add(bInst,1, i);
+			lInst.setId("IngLabel");
+					lInst.setWrapText(true);
+
+			beschList.add(lInst,1, i);
 		}
 		URL url = this.getClass().getResource("Tee.png");
 		if (url == null) {

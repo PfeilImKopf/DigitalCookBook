@@ -35,7 +35,7 @@ public class CookBook extends Application {
 				centerRoot.setRecipe(catPane.getRecList().getSelectionModel().getSelectedItem());
 			});
 			root.setCenter(centerRoot);
-			
+
 			// make it visible
 			primaryStage.show();
 			
