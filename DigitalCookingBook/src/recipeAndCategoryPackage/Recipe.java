@@ -4,6 +4,8 @@ import java.io.File;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+import CustomStuff.CustomCatListCell;
+import CustomStuff.CustomIngListCell;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -21,6 +23,7 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 
 public class Recipe extends BorderPane {
 	private String name;
@@ -46,18 +49,25 @@ public class Recipe extends BorderPane {
 		zutList = new ListView<Ingredients>();
 		zutList.setId("zutList");
 		zutList.setMaxWidth(200);
-		zutList.getItems().add(new Ingredients(0, "ml", "Wasser"));
+		for (int i=0;i<20;i++) {
+		zutList.getItems().add(new Ingredients(i, "ml", "Wasser"));
+		}
+		zutList.setCellFactory(e-> new CustomIngListCell());
 		beschList = new GridPane();
 		ColumnConstraints bCol1 = new ColumnConstraints();
-		bCol1.setPercentWidth(10);
+		bCol1.setMinWidth(30);
+		bCol1.setMaxWidth(30);
 		ColumnConstraints bCol2 = new ColumnConstraints();
-		bCol2.setPercentWidth(80);
+		bCol2.setPercentWidth(90);
 		beschList.getColumnConstraints().addAll(bCol1,bCol2);
+		beschList.setVgap(10);
 		for (int i = 0; i<10;i++) {
 			RowConstraints bRow = new RowConstraints();
 			bRow.setFillHeight(true);
 			beschList.getRowConstraints().add(bRow);
-			beschList.add(new TextArea(i+1+"."),0,i);
+			TextArea bCount = new TextArea(i+1+".");
+			bCount.setEditable(false);
+			beschList.add(bCount,0,i);
 			TextArea bInst = new TextArea("Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
 					+ " sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut "
 					+ "enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut"
@@ -66,6 +76,8 @@ public class Recipe extends BorderPane {
 					+ " sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt"
 					+ " mollit anim id est laborum.");
 					bInst.setWrapText(true);
+					bInst.setEditable(false);
+			
 			beschList.add(bInst,1, i);
 		}
 		URL url = this.getClass().getResource("Tee.png");
