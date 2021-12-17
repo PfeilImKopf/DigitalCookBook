@@ -1,14 +1,19 @@
 package application;
 
 
+import java.net.URL;
+
 import CustomStuff.CustomButton;
 import javafx.beans.binding.Bindings;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -65,6 +70,50 @@ public class CatPane extends GridPane {
 		labelPane.setId("labelPane");
 		labelPane.getChildren().add(currentCat);
 
+		//infoIconBox
+		GridPane infoIconBox = new GridPane();
+		//infoIconBox.prefWidth(180);
+		ColumnConstraints cinfo1 = new ColumnConstraints();
+		cinfo1.setPercentWidth(33);
+		ColumnConstraints cinfo2 = new ColumnConstraints();
+		cinfo2.setPercentWidth(33);
+		ColumnConstraints cinfo3 = new ColumnConstraints();
+		cinfo3.setPercentWidth(33);
+		RowConstraints rinfo1 = new RowConstraints();
+		rinfo1.setPrefHeight(24);
+		RowConstraints rinfo2 = new RowConstraints();
+		rinfo2.setPrefHeight(24);
+		infoIconBox.getColumnConstraints().addAll(cinfo1,cinfo2,cinfo3);
+		infoIconBox.getRowConstraints().addAll(rinfo1,rinfo2);
+		URL url1 = this.getClass().getResource("time.png");
+		URL url2 = this.getClass().getResource("heavy.png");
+		URL url3 = this.getClass().getResource("food.png");
+		if (url1 == null || url2 == null || url3 ==null) {
+			System.out.println("Resource (png) not found. Aborting.");
+			System.exit(-1);
+		}
+		String png1 = url1.toExternalForm(); 
+		String png2 = url2.toExternalForm(); 
+		String png3 = url3.toExternalForm();
+		Image image1 = new Image(png1);
+		ImageView imView1 = new ImageView(image1);
+		Image image2 = new Image(png2);
+		ImageView imView2 = new ImageView(image2);
+		Image image3 = new Image(png3);
+		ImageView imView3 = new ImageView(image3);
+		imView1.setFitWidth(24);
+		imView1.setFitHeight(24);
+		GridPane.setHalignment(imView1, HPos.RIGHT);
+		infoIconBox.add(imView1, 0, 1);
+		imView2.setFitWidth(24);
+		imView2.setFitHeight(24);
+		GridPane.setHalignment(imView2, HPos.RIGHT);
+		infoIconBox.add(imView2, 1, 1);
+		imView3.setFitWidth(24);
+		imView3.setFitHeight(24);
+		GridPane.setHalignment(imView3, HPos.RIGHT);
+		infoIconBox.add(imView3, 2, 1);
+		
 		
 		//Listener for stage property to scale the Catlist and rezList
 		parent.heightProperty().addListener((obs,oldH,newH) -> {
@@ -76,6 +125,7 @@ public class CatPane extends GridPane {
 			rezScrollPane.setPrefHeight(parent.getHeight()-controlBox.getHeight()-48);
 		});
 
+		
 		//all Constraints for the GridPane of the CatPane itself
 		ColumnConstraints col1 = new ColumnConstraints();
 		col1.setMaxWidth(180);
@@ -101,7 +151,8 @@ public class CatPane extends GridPane {
 		row5.setMinHeight(48);
 		getColumnConstraints().addAll(col1,col2);
 		getRowConstraints().addAll(row1,row2,row3,row4,row5);
-		add(labelPane,0,1,1,1);
+		add(labelPane,0,0,1,1);
+		add(infoIconBox,0,1,1,1);
 		add(catScrollPane,1,0,1,5);
 		add(rezScrollPane,0,2,1,1);
 		add(controlBox,0,3,1,1);
