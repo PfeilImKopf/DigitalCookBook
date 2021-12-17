@@ -5,12 +5,18 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import recipeAndCategoryPackage.Recipe;
 
 public class CustomRezListCell extends ListCell<Recipe> {
+	private StackPane stack1;
+	private StackPane stack2;
+	private StackPane stack3;
+	private Text text1;
 	private Circle circle1;
 	private Circle circle2;
 	private Circle circle3;
@@ -23,13 +29,17 @@ public class CustomRezListCell extends ListCell<Recipe> {
 		circle2.setStroke(Color.BLACK);
 		circle3 = new Circle(11,Color.WHITE);
 		circle3.setStroke(Color.BLACK);
-		
+		stack1 = new StackPane();
+		text1 = new Text();
+		stack1.getChildren().addAll(circle1,text1);
+		stack2 = new StackPane();
+		stack3 = new StackPane();
 		labelName = new Label();
 		GridPane.setHalignment(labelName, HPos.CENTER);
 		labelName.setFont(new Font(15));
 		
 		gridPane = new GridPane();
-		gridPane.add(circle1, 1, 0);
+		gridPane.add(stack1, 1, 0);
 		gridPane.add(circle2, 3, 0);
 		gridPane.add(circle3, 5, 0);
 		gridPane.add(labelName,0,1,6,1);
@@ -46,6 +56,7 @@ public class CustomRezListCell extends ListCell<Recipe> {
 		else {
 			setText(null);
 			labelName.setText(rez.getName());
+			text1.setText(rez.getTime());
 			setGraphic(gridPane);
 		}
 	}

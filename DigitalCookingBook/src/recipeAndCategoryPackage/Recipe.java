@@ -30,6 +30,7 @@ import javafx.scene.text.Font;
 
 public class Recipe extends BorderPane {
 	private String name;
+	private String time;
 	private ListView<Ingredients> zutList;
 	private GridPane beschList;
 	private Image image;
@@ -58,8 +59,8 @@ public class Recipe extends BorderPane {
 		zutList.setCellFactory(e-> new CustomIngListCell());
 		beschList = new GridPane();
 		ColumnConstraints bCol1 = new ColumnConstraints();
-		bCol1.setMinWidth(30);
-		bCol1.setMaxWidth(30);
+		bCol1.setMinWidth(50);
+		bCol1.setMaxWidth(50);
 		ColumnConstraints bCol2 = new ColumnConstraints();
 		bCol2.setPercentWidth(90);
 		beschList.getColumnConstraints().addAll(bCol1,bCol2);
@@ -106,6 +107,7 @@ public class Recipe extends BorderPane {
 		}
 		infoL.setAlignment(Pos.CENTER_LEFT);
 		infoR.getChildren().addAll(new Label("30 min"), new Label("4"), new Label("Leicht"), new Label("Vegan"));
+		time = "30";
 		for (Node child : infoR.getChildren()) {
 			VBox.setMargin(child, new Insets(5,5,5,5));	
 		}
@@ -186,6 +188,8 @@ public class Recipe extends BorderPane {
 	public HBox getInfo() {
 		return info;
 	}
-
+	public String getTime() {
+		return time;
+	}
 
 }
