@@ -43,11 +43,7 @@ public class CatPane extends GridPane {
 		.getSelectionModel().getSelectedItem().getName());
 		labelPane = new StackPane();
 		
-		//setting Insets of all the elements of the CatPane
-		GridPane.setMargin(catScrollPane, new Insets(15,15,15,15));
-		GridPane.setMargin(rezScrollPane, new Insets(0,0,0,10));
-		GridPane.setMargin(controlBox, new Insets(0,0,10,10));
-		GridPane.setMargin(labelPane, new Insets(10,0,0,10));
+
 		
 		
 		//Listener for updating the current label
@@ -72,18 +68,18 @@ public class CatPane extends GridPane {
 
 		//infoIconBox
 		GridPane infoIconBox = new GridPane();
-		//infoIconBox.prefWidth(180);
-		ColumnConstraints cinfo1 = new ColumnConstraints();
-		cinfo1.setPercentWidth(33);
-		ColumnConstraints cinfo2 = new ColumnConstraints();
-		cinfo2.setPercentWidth(33);
-		ColumnConstraints cinfo3 = new ColumnConstraints();
-		cinfo3.setPercentWidth(33);
+		infoIconBox.setHgap(14);
+//		ColumnConstraints cinfo1 = new ColumnConstraints();
+//		cinfo1.setPercentWidth(30);
+//		ColumnConstraints cinfo2 = new ColumnConstraints();
+//		cinfo2.setPercentWidth(30);
+//		ColumnConstraints cinfo3 = new ColumnConstraints();
+//		cinfo3.setPercentWidth(30);
 		RowConstraints rinfo1 = new RowConstraints();
 		rinfo1.setPrefHeight(24);
 		RowConstraints rinfo2 = new RowConstraints();
 		rinfo2.setPrefHeight(24);
-		infoIconBox.getColumnConstraints().addAll(cinfo1,cinfo2,cinfo3);
+//		infoIconBox.getColumnConstraints().addAll(cinfo1,cinfo2,cinfo3);
 		infoIconBox.getRowConstraints().addAll(rinfo1,rinfo2);
 		URL url1 = this.getClass().getResource("time.png");
 		URL url2 = this.getClass().getResource("heavy.png");
@@ -103,17 +99,17 @@ public class CatPane extends GridPane {
 		ImageView imView3 = new ImageView(image3);
 		imView1.setFitWidth(24);
 		imView1.setFitHeight(24);
-		GridPane.setHalignment(imView1, HPos.RIGHT);
-		infoIconBox.add(imView1, 0, 1);
+
+		infoIconBox.add(imView1, 1, 1);
 		imView2.setFitWidth(24);
 		imView2.setFitHeight(24);
-		GridPane.setHalignment(imView2, HPos.RIGHT);
-		infoIconBox.add(imView2, 1, 1);
+
+		infoIconBox.add(imView2, 3, 1);
 		imView3.setFitWidth(24);
 		imView3.setFitHeight(24);
-		GridPane.setHalignment(imView3, HPos.RIGHT);
-		infoIconBox.add(imView3, 2, 1);
-		
+
+		infoIconBox.add(imView3, 5, 1);
+		infoIconBox.add(new Label("Icon"), 0, 0,6,1);
 		
 		//Listener for stage property to scale the Catlist and rezList
 		parent.heightProperty().addListener((obs,oldH,newH) -> {
@@ -124,7 +120,12 @@ public class CatPane extends GridPane {
 			catScrollPane.setPrefHeight(parent.getHeight());
 			rezScrollPane.setPrefHeight(parent.getHeight()-controlBox.getHeight()-48);
 		});
-
+		//setting Insets of all the elements of the CatPane
+		GridPane.setMargin(catScrollPane, new Insets(15,15,15,15));
+		GridPane.setMargin(rezScrollPane, new Insets(0,0,0,10));
+		GridPane.setMargin(controlBox, new Insets(0,0,10,10));
+		GridPane.setMargin(labelPane, new Insets(10,0,0,10));
+		GridPane.setMargin(infoIconBox,new Insets(0,0,0,10));
 		
 		//all Constraints for the GridPane of the CatPane itself
 		ColumnConstraints col1 = new ColumnConstraints();
