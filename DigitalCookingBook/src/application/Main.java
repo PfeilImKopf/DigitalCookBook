@@ -32,10 +32,15 @@ public class Main extends Application {
 			buttonShow.setMinWidth(220);
 			buttonShow.setFont(new Font("Arial", 20));
 			buttonShow.setTextAlignment(TextAlignment.CENTER);
+			buttonShow.setOnAction(event -> {
+				Stage cb = new CookBook();
+				primaryStage.hide();
+			});
 			buttonQuit.setMinWidth(220);
 			buttonQuit.setFont(new Font("Arial", 20));
 			buttonQuit.setTextAlignment(TextAlignment.CENTER);
 			buttonQuit.setOnAction(event -> System.exit(0));
+			
 			
 			root.setPadding(new Insets(10, 10, 10, 10));
 			root.setHgap(20);
