@@ -1,41 +1,50 @@
 #IngLabel {
     -fx-font-size: 22;
     -fx-font-weight: bold;
-
 }
-
+#ImPane {
+	-fx-background-color:#c8d4dc;
+}
+#beschList {
+	-fx-background-color:#c8d4dc;
+}
 #catList .scroll-bar:vertical {
    -fx-padding: -100px;
    -fx-opacity: 0;
 } 
 #catList .list-cell:odd {
-	-fx-background-color:#00b894;
+	-fx-background-color:#c8d4dc;
 }
 #catList .list-cell:even {
-	-fx-background-color:#00cec9;
+	-fx-background-color:#a8c4dc;
 }
 #catList .list-cell:selected:odd,
 #catList .list-cell:selected:even {
     -fx-background-color: -fx-background;
 }
 #catList .list-cell:empty {
-    -fx-background-color:#f0d4ec;
+    -fx-background-color:#c8d4dc;
 }
 
 #catPane {
-	-fx-background-color:#d8bfd4;
+	-fx-background-color:#688cbc;
 
 }
-
+#filler {
+	-fx-background-color:#e8c4ac;
+}
 #labelPane {
 	-fx-border-radius:30 30 0 0;
 	-fx-background-radius:30 30 0 0;
 	-fx-background-color:#f0d4ec;
 }
 #info {
-	-fx-background-color:#f0d4ec;
+	-fx-background-color:#a8c4dc;
 	-fx-background-insets: 1;
 	-fx-effect: dropshadow(one-pass-box, grey, 10, 0.7, 0, 0);
+}
+#recipeBorder {
+	-fx-background-color:#c8d4dc;
 }
 #recipeControlBox {
 	-fx-border-radius:0 0 30 30;
@@ -47,17 +56,17 @@
    -fx-opacity: 0;
 } 
 #recList .list-cell:odd {
-	-fx-background-color:#0984e3;
+	-fx-background-color:#c8d4dc;
 }
 #recList .list-cell:even {
-	-fx-background-color:#ff7675;
+	-fx-background-color:#a8c4dc;
 }
 #recList .list-cell:selected:odd, 
 #recList .list-cell:selected:even {
     -fx-background-color: -fx-background;
 }
 #recList .list-cell:empty {
-    -fx-background-color:#f0d4ec;
+    -fx-background-color:#c8d4dc;
 }
 
 
@@ -66,24 +75,21 @@
 	-fx-underline: true;
 }
 #titleBox {
-	-fx-background-color:#e6dce3;
+	-fx-background-color:#e8c4ac;
 }
 #topControl {
-	-fx-background-color:#d8bfd4;
+	-fx-background-color:#688cbc;
 }
 #recipeScrollPane {
 	
 }
-#recipeBorder {
-	-fx-background-color:#f0f8fc; 
-}
 #recipeLeftGrid {
-	-fx-background-color:#e6dce3;
+	-fx-background-color:#e8c4ac;
 
 	
 } 
 #zutList .list-cell:empty {
-    -fx-background-color:#f0d4ec;
+    -fx-background-color:#c8d4dc;
 
 }
 #zutList {
@@ -92,10 +98,10 @@
 	-fx-background-color:#f0d4ec;
 }
 #zutList .list-cell:odd {
-	-fx-background-color:#00b894;
+	-fx-background-color:#c8d4dc;
 }
 #zutList .list-cell:even {
-	-fx-background-color:#00cec9;
+	-fx-background-color:#a8c4dc;
 }
 #zutList .list-cell:selected:odd,
 #zutList .list-cell:selected:even {

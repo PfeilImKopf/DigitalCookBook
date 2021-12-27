@@ -49,6 +49,7 @@ public class Recipe extends BorderPane {
 		this("....");
 	}
 	public Recipe(String name) {
+		setId("recipe");
 		this.name = name;
 		zutList = new ListView<Ingredients>();
 		zutList.setId("zutList");
@@ -58,6 +59,7 @@ public class Recipe extends BorderPane {
 		}
 		zutList.setCellFactory(e-> new CustomIngListCell());
 		beschList = new GridPane();
+		beschList.setId("beschList");
 		ColumnConstraints bCol1 = new ColumnConstraints();
 		bCol1.setMinWidth(50);
 		bCol1.setMaxWidth(50);
@@ -140,6 +142,7 @@ public class Recipe extends BorderPane {
 		
 		//BorderPane for the center for title, Image and Instructions
 		centerPane = new BorderPane();
+		
 		//title on the top
 		titleBox = new StackPane();
 		titleBox.getChildren().add(title);
@@ -155,6 +158,7 @@ public class Recipe extends BorderPane {
 		recScroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 		//StackPane to better center the image
 		imPane = new StackPane();
+		imPane.setId("ImPane");
 		imPane.getChildren().add(imView);
 		//BorderPane on the ScrollPane for the effect described above
 		recBorder = new BorderPane();
@@ -167,6 +171,10 @@ public class Recipe extends BorderPane {
 		centerPane.setCenter(recScroll);
 		setCenter(centerPane);
 		setLeft(leftGrid);
+		StackPane filler = new StackPane();
+		filler.setId("filler");
+		filler.setPrefWidth(20);
+		setRight(filler);
 		//end of Recipe Contructor
 	}
 	public ImageView getImView() {
