@@ -36,12 +36,15 @@
 #labelPane {
 	-fx-border-radius:30 30 0 0;
 	-fx-background-radius:30 30 0 0;
-	-fx-background-color:#f0d4ec;
+	-fx-background-color:#c8d4dc;
 }
 #info {
 	-fx-background-color:#a8c4dc;
 	-fx-background-insets: 1;
 	-fx-effect: dropshadow(one-pass-box, grey, 10, 0.7, 0, 0);
+}
+#infoIconBox {
+	-fx-background-color:#c8d4dc;
 }
 #recipeBorder {
 	-fx-background-color:#c8d4dc;
@@ -49,7 +52,7 @@
 #recipeControlBox {
 	-fx-border-radius:0 0 30 30;
 	-fx-background-radius:0 0 30 30;
-	-fx-background-color:#f0d4ec;
+	-fx-background-color:#c8d4dc;
 }
 #recList .scroll-bar:vertical {
    -fx-padding: -100px;

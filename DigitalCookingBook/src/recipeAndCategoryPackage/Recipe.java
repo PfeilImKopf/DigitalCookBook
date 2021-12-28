@@ -160,6 +160,7 @@ public class Recipe extends BorderPane {
 		imPane = new StackPane();
 		imPane.setId("ImPane");
 		imPane.getChildren().add(imView);
+		imPane.setMargin(imView, new Insets(15,0,0,0));
 		//BorderPane on the ScrollPane for the effect described above
 		recBorder = new BorderPane();
 		recBorder.setId("recipeBorder");

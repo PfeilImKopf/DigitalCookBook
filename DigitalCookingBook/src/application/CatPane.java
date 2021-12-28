@@ -29,21 +29,30 @@ public class CatPane extends GridPane {
 	private Button catButton;
 	private Label currentCat;
 	private HBox controlBox ;
+	private HBox controlBoxCat ;
 	private StackPane labelPane;
+	private StackPane labelPaneCat;
+	
 	public CatPane(Stage parent) {
 		setId("catPane");
 		//Category list
 		catScrollPane = new CatScrollPane();
 		//Recipe List
 		rezScrollPane = new RezScrollPane(catScrollPane);
-		//Controlbox at the bottom of the recipe list
-		controlBox = new HBox();
+		
 		//labelPane on top of the recipe List
 		currentCat = new Label("Rezepte aus der Kategorie:\n"+catScrollPane.getCatList()
 		.getSelectionModel().getSelectedItem().getName());
-		labelPane = new StackPane();
-		
 
+		//finishing the labelPane
+		labelPane = new StackPane();
+		labelPane.setId("labelPane");
+		labelPane.getChildren().add(currentCat);
+		
+		//finishing labelPaneCat
+		labelPaneCat = new StackPane();
+		labelPaneCat.setId("labelPane");
+		labelPaneCat.getChildren().add(new Label("Wählen sie eine Kategorie"));
 		
 		
 		//Listener for updating the current label
@@ -54,20 +63,24 @@ public class CatPane extends GridPane {
 
 		
 		//finishing the controlBox on the bottom of rezList
+		controlBox = new HBox();
 		controlBox.setId("recipeControlBox");
 		controlBox.setMaxHeight(100);
-		catButton = new CustomButton("Neue Kategorie");
-		controlBox.getChildren().addAll(catButton);
-		for (Node child : controlBox.getChildren()) {
-			HBox.setMargin(child, new Insets(5,5,5,5));
-		}
+//		catButton = new CustomButton("Neue Kategorie");
+//		controlBox.getChildren().addAll(catButton);
+//		for (Node child : controlBox.getChildren()) {
+//			HBox.setMargin(child, new Insets(5,5,5,5));
+//		}
+		
+		//finishing the controlBoxCat on the bottom of catList
+		controlBoxCat = new HBox();
+		controlBoxCat.setId("recipeControlBox");
+		controlBoxCat.setMaxHeight(100);
 
-		//finishing the labelPane
-		labelPane.setId("labelPane");
-		labelPane.getChildren().add(currentCat);
 
 		//infoIconBox
 		GridPane infoIconBox = new GridPane();
+		infoIconBox.setId("infoIconBox");
 		infoIconBox.setHgap(14);
 //		ColumnConstraints cinfo1 = new ColumnConstraints();
 //		cinfo1.setPercentWidth(30);
@@ -121,10 +134,12 @@ public class CatPane extends GridPane {
 			rezScrollPane.setPrefHeight(parent.getHeight()-controlBox.getHeight()-48);
 		});
 		//setting Insets of all the elements of the CatPane
-		GridPane.setMargin(catScrollPane, new Insets(15,15,15,15));
+		GridPane.setMargin(catScrollPane, new Insets(0,15,0,15));
+		GridPane.setMargin(labelPaneCat, new Insets(10,15,0,15));
+		GridPane.setMargin(controlBoxCat, new Insets(0,15,10,15));
 		GridPane.setMargin(rezScrollPane, new Insets(0,0,0,10));
-		GridPane.setMargin(controlBox, new Insets(0,0,10,10));
-		GridPane.setMargin(labelPane, new Insets(10,0,0,10));
+		GridPane.setMargin(controlBox, new Insets(0,0,0,10));
+		GridPane.setMargin(labelPane, new Insets(0,0,0,10));
 		GridPane.setMargin(infoIconBox,new Insets(0,0,0,10));
 		
 		//all Constraints for the GridPane of the CatPane itself
@@ -141,22 +156,28 @@ public class CatPane extends GridPane {
 		row2.setMaxHeight(48);
 		row2.setMinHeight(48);
 		RowConstraints row3 = new RowConstraints();
-		Bindings.bindBidirectional(row3.prefHeightProperty(),rezScrollPane.prefHeightProperty());
+		row3.setPrefHeight(48);
+		row3.setMaxHeight(48);
+		row3.setMinHeight(48);
 		RowConstraints row4 = new RowConstraints();
-		row4.setPrefHeight(48);
-		row4.setMaxHeight(48);
-		row4.setMinHeight(48);
+		Bindings.bindBidirectional(row4.prefHeightProperty(),rezScrollPane.prefHeightProperty());
 		RowConstraints row5 = new RowConstraints();
 		row5.setPrefHeight(48);
 		row5.setMaxHeight(48);
 		row5.setMinHeight(48);
+		RowConstraints row6 = new RowConstraints();
+		row6.setPrefHeight(48);
+		row6.setMaxHeight(48);
+		row6.setMinHeight(48);
 		getColumnConstraints().addAll(col1,col2);
-		getRowConstraints().addAll(row1,row2,row3,row4,row5);
-		add(labelPane,0,0,1,1);
-		add(infoIconBox,0,1,1,1);
-		add(catScrollPane,1,0,1,5);
-		add(rezScrollPane,0,2,1,1);
-		add(controlBox,0,3,1,1);
+		getRowConstraints().addAll(row1,row2,row3,row4,row5,row6);
+		add(labelPane,0,1,1,1);
+		add(labelPaneCat,1,0,1,1);
+		add(infoIconBox,0,2,1,1);
+		add(catScrollPane,1,1,1,4);
+		add(rezScrollPane,0,3,1,1);
+		add(controlBox,0,4,1,1);
+		add(controlBoxCat,1,5,1,1);
 	}
 	public Recipe getRecipe() {
 		return rezScrollPane.getRez();
