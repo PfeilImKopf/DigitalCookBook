@@ -29,6 +29,10 @@ public class Main extends Application {
 			buttonWrite.setMinWidth(220);
 			buttonWrite.setFont(new Font("Arial", 20));
 			buttonWrite.setTextAlignment(TextAlignment.CENTER);
+			buttonWrite.setOnAction(event -> {
+				Stage cbw = new CookBookWriter();
+				primaryStage.hide();
+			});
 			buttonShow.setMinWidth(220);
 			buttonShow.setFont(new Font("Arial", 20));
 			buttonShow.setTextAlignment(TextAlignment.CENTER);
