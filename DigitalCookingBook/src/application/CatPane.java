@@ -20,6 +20,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import recipeAndCategoryPackage.Category;
 import recipeAndCategoryPackage.Recipe;
 
 
@@ -55,12 +56,7 @@ public class CatPane extends GridPane {
 		labelPaneCat.getChildren().add(new Label("Wählen sie eine Kategorie"));
 		
 		
-		//Listener for updating the current label
-		catScrollPane.getCatList().setOnMouseClicked(e-> {
-			currentCat.setText("Rezepte aus der Kategorie:\n"
-			+catScrollPane.getCatList().getSelectionModel().getSelectedItem().getName());
-			rezScrollPane.setRecipeList(catScrollPane.getCatList().getSelectionModel().getSelectedItem().getRezList());
-			});
+
 
 
 
@@ -173,12 +169,20 @@ public class CatPane extends GridPane {
 		add(rezScrollPane,0,3,1,1);
 		add(controlBox,0,4,1,1);
 		add(controlBoxCat,1,5,1,1);
+		
+
 	}
 	public HBox getControlBox() {
 		return controlBox;
 	}
 	public CatScrollPane getCatScrollPane() {
 		return catScrollPane;
+	}
+	public ListView<Category> getCatList() {
+		return catScrollPane.getCatList();
+	}
+	public Label getCurrentCat() {
+		return currentCat;
 	}
 	public RezScrollPane getRezScrollPane() {
 		return rezScrollPane;

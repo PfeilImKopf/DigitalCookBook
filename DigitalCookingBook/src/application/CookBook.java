@@ -22,7 +22,7 @@ public class CookBook extends Stage {
 			setMinWidth(1280);
 			setMinHeight(720);
 			setTitle("Digitales Kochbuch");
-			
+
 			//category and recipe list on the right
 			catPane = new CatPane();
 			stackCatPane = new StackPane();
@@ -32,10 +32,20 @@ public class CookBook extends Stage {
 
 			// everything else on the left/center
 			centerRoot = new CenterPane(catPane.getRecipe(),this);
-			catPane.getRecList().setOnMouseClicked(e-> {
+
+
+			//Listener for updating the current label
+			catPane.getCatList().setOnMouseClicked(e-> {
+				catPane.getCurrentCat().setText("Rezepte aus der Kategorie:\n"
+						+catPane.getCatList().getSelectionModel().getSelectedItem().getName());
+				catPane.getRezScrollPane().setRecipeList(catPane.getCatList().getSelectionModel().getSelectedItem().getRezList());
 				centerRoot.setRecipe(catPane.getRecList().getSelectionModel().getSelectedItem());
+				catPane.getRecList().setOnMouseClicked(ev-> {
+					centerRoot.setRecipe(catPane.getRecList().getSelectionModel().getSelectedItem());
+				});
+				root.setCenter(centerRoot);
 			});
-			root.setCenter(centerRoot);
+
 
 			//Listener for stage property to scale the Catlist and rezList
 			heightProperty().addListener((obs,oldH,newH) -> {
@@ -45,8 +55,12 @@ public class CookBook extends Stage {
 			showingProperty().addListener((obs,oldH,newH) -> {
 				catPane.getCatScrollPane().setPrefHeight(getHeight());
 				catPane.getRezScrollPane().setPrefHeight(getHeight()-catPane.getControlBox().getHeight()-48);
+				catPane.getRecList().setOnMouseClicked(e-> {
+					centerRoot.setRecipe(catPane.getRecList().getSelectionModel().getSelectedItem());
+				});
+				root.setCenter(centerRoot);
 			});
-			
+
 			// make it visible
 			show();
 

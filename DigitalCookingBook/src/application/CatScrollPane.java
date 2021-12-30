@@ -21,7 +21,7 @@ public CatScrollPane() {
 	catList.setCellFactory(e-> new CustomCatListCell());
 	catList.setMaxHeight(Double.MAX_VALUE);
 	//Height Binding for catList and catPane and catlist to the parent Stage
-    Bindings.bindBidirectional(prefHeightProperty(), catList.prefHeightProperty());
+    catList.prefHeightProperty().bind(prefHeightProperty());
 	catList.getSelectionModel().selectFirst();
 	setContent(catList);
 }
