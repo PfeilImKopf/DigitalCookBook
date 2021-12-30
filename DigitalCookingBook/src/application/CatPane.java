@@ -33,7 +33,7 @@ public class CatPane extends GridPane {
 	private StackPane labelPane;
 	private StackPane labelPaneCat;
 	
-	public CatPane(Stage parent) {
+	public CatPane() {
 		setId("catPane");
 		//Category list
 		catScrollPane = new CatScrollPane();
@@ -56,8 +56,11 @@ public class CatPane extends GridPane {
 		
 		
 		//Listener for updating the current label
-		catScrollPane.getCatList().setOnMouseClicked(e->currentCat.setText("Rezepte aus der Kategorie:\n"
-								+catScrollPane.getCatList().getSelectionModel().getSelectedItem().getName()));
+		catScrollPane.getCatList().setOnMouseClicked(e-> {
+			currentCat.setText("Rezepte aus der Kategorie:\n"
+			+catScrollPane.getCatList().getSelectionModel().getSelectedItem().getName());
+			rezScrollPane.setRecipeList(catScrollPane.getCatList().getSelectionModel().getSelectedItem().getRezList());
+			});
 
 
 
@@ -124,15 +127,7 @@ public class CatPane extends GridPane {
 		infoIconBox.add(imView3, 5, 1);
 		infoIconBox.add(new Label("Icon"), 0, 0,6,1);
 		
-		//Listener for stage property to scale the Catlist and rezList
-		parent.heightProperty().addListener((obs,oldH,newH) -> {
-			catScrollPane.setPrefHeight(newH.doubleValue());
-			rezScrollPane.setPrefHeight(newH.doubleValue()-controlBox.getHeight()-48);
-		});
-		parent.showingProperty().addListener((obs,oldH,newH) -> {
-			catScrollPane.setPrefHeight(parent.getHeight());
-			rezScrollPane.setPrefHeight(parent.getHeight()-controlBox.getHeight()-48);
-		});
+
 		//setting Insets of all the elements of the CatPane
 		GridPane.setMargin(catScrollPane, new Insets(0,15,0,15));
 		GridPane.setMargin(labelPaneCat, new Insets(10,15,0,15));
@@ -178,6 +173,15 @@ public class CatPane extends GridPane {
 		add(rezScrollPane,0,3,1,1);
 		add(controlBox,0,4,1,1);
 		add(controlBoxCat,1,5,1,1);
+	}
+	public HBox getControlBox() {
+		return controlBox;
+	}
+	public CatScrollPane getCatScrollPane() {
+		return catScrollPane;
+	}
+	public RezScrollPane getRezScrollPane() {
+		return rezScrollPane;
 	}
 	public Recipe getRecipe() {
 		return rezScrollPane.getRez();
