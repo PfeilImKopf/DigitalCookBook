@@ -1,19 +1,20 @@
 package application;
 
 import java.net.URL;
-
+import java.util.ArrayList;
 
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import recipeAndCategoryPackage.Category;
 
 
 public class CookBook extends Stage {
 	private CatPane catPane;
 	private StackPane stackCatPane;
 	private CenterPane centerRoot;
-	public CookBook() {	
+	public CookBook(ArrayList<Category> allCats) {	
 		try {
 			//CustomStage primaryStage = new CustomStage();
 			BorderPane root = new BorderPane();
@@ -24,7 +25,7 @@ public class CookBook extends Stage {
 			setTitle("Digitales Kochbuch");
 
 			//category and recipe list on the right
-			catPane = new CatPane();
+			catPane = new CatPane(allCats);
 			stackCatPane = new StackPane();
 			stackCatPane.getChildren().add(catPane);
 			stackCatPane.setId("stackCatPane");

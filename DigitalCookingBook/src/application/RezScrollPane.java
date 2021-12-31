@@ -33,6 +33,7 @@ public class RezScrollPane extends ScrollPane {
 		aktList.getSelectionModel().selectFirst();
 		aktList.setId("recList");
 		
+
 		akt = aktList.getItems().get(aktList.getSelectionModel().getSelectedIndex());
 		aktList.setCellFactory(e -> new CustomRezListCell());
 		aktList.prefHeightProperty().bind(prefHeightProperty());

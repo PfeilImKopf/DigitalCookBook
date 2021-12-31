@@ -1,5 +1,7 @@
 package application;
 
+import java.util.ArrayList;
+
 import CustomStuff.CustomCatListCell;
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
@@ -9,7 +11,7 @@ import recipeAndCategoryPackage.Category;
 
 public class CatScrollPane extends ScrollPane {
 	private ListView<Category> catList;
-public CatScrollPane() {
+public CatScrollPane(ArrayList<Category> allCats) {
 	//Category List 
 	setId("catListScroll");
 	setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
@@ -17,7 +19,7 @@ public CatScrollPane() {
 	catList=new ListView<Category>();
 	catList.setId("catList");
 	catList.setPrefWidth(220);
-	catList.getItems().addAll(new Category("Tee"),new Category("Suppen"),new Category("Süßspeisen"));
+	catList.getItems().addAll(allCats);
 	catList.setCellFactory(e-> new CustomCatListCell());
 	catList.setMaxHeight(Double.MAX_VALUE);
 	//Height Binding for catList and catPane and catlist to the parent Stage

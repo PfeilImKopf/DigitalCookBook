@@ -2,6 +2,7 @@ package application;
 
 
 import java.net.URL;
+import java.util.ArrayList;
 
 import CustomStuff.CustomButton;
 import javafx.beans.binding.Bindings;
@@ -34,10 +35,10 @@ public class CatPane extends GridPane {
 	private StackPane labelPane;
 	private StackPane labelPaneCat;
 	
-	public CatPane() {
+	public CatPane(ArrayList<Category> allCats) {
 		setId("catPane");
 		//Category list
-		catScrollPane = new CatScrollPane();
+		catScrollPane = new CatScrollPane(allCats);
 		//Recipe List
 		rezScrollPane = new RezScrollPane(catScrollPane);
 		

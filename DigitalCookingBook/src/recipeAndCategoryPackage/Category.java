@@ -12,7 +12,6 @@ public class Category {
 		this.name=name;
 		rezList = new ListView<Recipe>();
 		rezList.setPrefWidth(180);
-		rezList.getItems().addAll(new Recipe(name),new Recipe(),new Recipe("Bratapfel"));
 	}
 	public String getName() {
 		return this.name;
@@ -23,4 +22,8 @@ public class Category {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public void addRec(Recipe rec) {
+		rezList.getItems().add(rec);
+	}
+
 }

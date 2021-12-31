@@ -45,6 +45,7 @@ public class Recipe extends BorderPane {
 	private BorderPane recBorder;
 	private StackPane imPane;
 	private StackPane titleBox;
+	private int counter;
 	public Recipe() {
 		this("....");
 	}
@@ -54,9 +55,6 @@ public class Recipe extends BorderPane {
 		zutList = new ListView<Ingredients>();
 		zutList.setId("zutList");
 		zutList.setMaxWidth(200);
-		for (int i=0;i<20;i++) {
-		zutList.getItems().add(new Ingredients(i, "ml", "Wasser"));
-		}
 		zutList.setCellFactory(e-> new CustomIngListCell());
 		beschList = new GridPane();
 		beschList.setId("beschList");
@@ -67,25 +65,9 @@ public class Recipe extends BorderPane {
 		bCol2.setPercentWidth(90);
 		beschList.getColumnConstraints().addAll(bCol1,bCol2);
 		beschList.setVgap(120);
-		for (int i = 0; i<10;i++) {
-			RowConstraints bRow = new RowConstraints();
-			beschList.getRowConstraints().add(bRow);
-			Label lCount = new Label(i+1+".");
-			lCount.setId("IngLabel");
-			GridPane.setValignment(lCount,VPos.TOP);
-			beschList.add(lCount,0,i);
-			Label lInst = new Label("Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
-					+ " sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut "
-					+ "enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut"
-					+ " aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit"
-					+ " in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur"
-					+ " sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt"
-					+ " mollit anim id est laborum.");
-			lInst.setId("IngLabel");
-					lInst.setWrapText(true);
-
-			beschList.add(lInst,1, i);
-		}
+		counter=1;
+ 
+		
 		URL url = this.getClass().getResource("Tee.png");
 		if (url == null) {
 			System.out.println("Resource (png) not found. Aborting.");
@@ -200,5 +182,20 @@ public class Recipe extends BorderPane {
 	public String getTime() {
 		return time;
 	}
+	public void addIngredient(Ingredients ing) {
+		zutList.getItems().add(ing);
+	}
+	public void addInstruction(Instructions inst) {
+		RowConstraints bRow = new RowConstraints();
+		beschList.getRowConstraints().add(bRow);
+		Label lCount = new Label(Integer.toString(inst.getSchrittNum()));
+		lCount.setId("IngLabel");
+		GridPane.setValignment(lCount,VPos.TOP);
+		beschList.add(lCount,0,counter);
+		Label lInst = new Label(inst.getText());
+		lInst.setId("IngLabel");
+				lInst.setWrapText(true);
 
+		beschList.add(lInst,1, counter++);
+	}
 }
