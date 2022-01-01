@@ -29,7 +29,7 @@ public class Main extends Application {
 				Recipe rec = new Recipe("Rezept"+(i*j+i));
 				int ran2 = (int)(Math.random()*10);
 				for(int k=0;k<=ran2;k++) {
-					rec.addIngredient(new Ingredients(i+j,"kg","Hurensohn"+(j*i)));
+					rec.addIngredient(new Ingredients(i+j,"kg","Wasser"+(j*i)));
 				}
 				int ran3 = (int)(Math.random()*10);
 				for(int l=0;l<=ran3;l++) {
