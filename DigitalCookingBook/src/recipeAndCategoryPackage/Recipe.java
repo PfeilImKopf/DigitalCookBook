@@ -160,6 +160,9 @@ public class Recipe extends BorderPane {
 		setRight(filler);
 		//end of Recipe Contructor
 	}
+	public void setTime(String time) {
+		this.time = time;
+	}
 	public ImageView getImView() {
 		return imView;
 	}
