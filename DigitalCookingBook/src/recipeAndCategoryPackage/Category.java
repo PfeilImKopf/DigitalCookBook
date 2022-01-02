@@ -1,29 +1,35 @@
 package recipeAndCategoryPackage;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+
 import javafx.scene.control.ListView;
 
-public class Category {
+public class Category implements Serializable {
 	private String name;
-	private ListView<Recipe> rezList;
+	private ArrayList<Recipe> rezList;
 	public Category() {
 		this("----");
 	}
 	public Category(String name) {
 		this.name=name;
-		rezList = new ListView<Recipe>();
-		rezList.setPrefWidth(180);
+		rezList = new ArrayList<Recipe>();
+		//rezList.setPrefWidth(180);
 	}
 	public String getName() {
 		return this.name;
 	}
-	public ListView<Recipe> getRezList() {
+	public ArrayList<Recipe> getRezList() {
 		return rezList;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
 	public void addRec(Recipe rec) {
-		rezList.getItems().add(rec);
+		rezList.add(rec);
 	}
-
+	@Override
+	public String toString() {
+		return "\n"+name+"["+rezList.toString()+"]";
+	}
 }

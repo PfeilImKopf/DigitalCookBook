@@ -1,5 +1,12 @@
 package application;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import javafx.application.Application;
@@ -22,11 +29,11 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		ArrayList<Category> allCats = new ArrayList<>();
-		for (int i=0;i<=20;i++) {
+		for (int i=0;i<=22;i++) {
 			Category cat = new Category("Kategorie"+i);
 			int ran1 = (int)(Math.random()*10);
 			for (int j =0;j<=ran1;j++) {
-				Recipe rec = new Recipe("Rezept"+(i*j+i));
+				Recipe rec = new Recipe();
 				int ran2 = (int)(Math.random()*10);
 				for(int k=0;k<=ran2;k++) {
 					rec.addIngredient(new Ingredients(i+j,"kg","Wasser"+(j*i)));
@@ -44,6 +51,42 @@ public class Main extends Application {
 				cat.addRec(rec);
 			}
 			allCats.add(cat);
+		}
+		System.out.println(allCats);
+		ArrayList<Category> allCats1 = new ArrayList<>();
+		try {
+			FileOutputStream f = new FileOutputStream(new File("myObjects.txt"));
+			ObjectOutputStream o = new ObjectOutputStream(f);
+			o.writeInt(allCats.size());
+			// Write objects to file
+			for (Category cat : allCats) {
+			o.writeObject(cat);
+			}
+			o.close();
+			f.close();
+
+			FileInputStream fi = new FileInputStream(new File("myObjects.txt"));
+			ObjectInputStream oi = new ObjectInputStream(fi);
+
+			// Read objects
+			int size = oi.readInt();
+			while(size>0) {
+				allCats1.add((Category)oi.readObject());
+				size--;
+			}
+
+
+			oi.close();
+			fi.close();
+
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found");
+		} catch (IOException e) {
+			System.out.println("Error initializing stream");
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		try {
 			GridPane root = new GridPane();
@@ -67,7 +110,7 @@ public class Main extends Application {
 			buttonShow.setFont(new Font("Arial", 20));
 			buttonShow.setTextAlignment(TextAlignment.CENTER);
 			buttonShow.setOnAction(event -> {
-				Stage cb = new CookBook(allCats);
+				Stage cb = new CookBook(allCats1);
 				primaryStage.hide();
 			});
 			buttonQuit.setMinWidth(220);

@@ -4,10 +4,12 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import recipeAndCategoryPackage.Category;
+import recipeAndCategoryPackage.Recipe;
 
 
 public class CookBook extends Stage {
@@ -39,7 +41,9 @@ public class CookBook extends Stage {
 			catPane.getCatList().setOnMouseClicked(e-> {
 				catPane.getCurrentCat().setText("Rezepte aus der Kategorie:\n"
 						+catPane.getCatList().getSelectionModel().getSelectedItem().getName());
-				catPane.getRezScrollPane().setRecipeList(catPane.getCatList().getSelectionModel().getSelectedItem().getRezList());
+				ListView<Recipe> recL = new ListView<Recipe>();
+				recL.getItems().addAll(catPane.getCatList().getSelectionModel().getSelectedItem().getRezList());
+				catPane.getRezScrollPane().setRecipeList(recL);
 				centerRoot.setRecipe(catPane.getRecList().getSelectionModel().getSelectedItem());
 				catPane.getRecList().setOnMouseClicked(ev-> {
 					centerRoot.setRecipe(catPane.getRecList().getSelectionModel().getSelectedItem());

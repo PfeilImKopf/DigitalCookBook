@@ -29,7 +29,9 @@ public class RezScrollPane extends ScrollPane {
 		setConfig();
 	}
 	private void setConfig() {
-		aktList= catScrollPane.getCatList().getItems().get(catScrollPane.getSelectedIndex()).getRezList();
+		ListView<Recipe> recL = new ListView<Recipe>();
+		recL.getItems().addAll(catScrollPane.getCatList().getItems().get(catScrollPane.getSelectedIndex()).getRezList());
+		aktList= recL;
 		aktList.getSelectionModel().selectFirst();
 		aktList.setId("recList");
 		

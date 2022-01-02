@@ -1,6 +1,8 @@
 package recipeAndCategoryPackage;
 
-public class Ingredients {
+import java.io.Serializable;
+
+public class Ingredients implements Serializable {
 	private double menge;
 	private String einheit;
 	private String name;

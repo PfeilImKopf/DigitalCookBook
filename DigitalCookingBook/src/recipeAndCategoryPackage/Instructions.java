@@ -1,6 +1,8 @@
 package recipeAndCategoryPackage;
 
-public class Instructions {
+import java.io.Serializable;
+
+public class Instructions implements Serializable {
 	private final int schrittNum;
 	private String text;
 	
