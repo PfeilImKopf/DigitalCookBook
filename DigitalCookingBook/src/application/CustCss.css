@@ -22,9 +22,6 @@
 #catList .list-cell:selected:even {
     -fx-background-color: -fx-background;
 }
-#catList .list-cell:empty {
-    -fx-background-color:#c8d4dc;
-}
 
 #catPane {
 	-fx-background-color:#688cbc;
@@ -68,9 +65,6 @@
 #recList .list-cell:selected:even {
     -fx-background-color: -fx-background;
 }
-#recList .list-cell:empty {
-    -fx-background-color:#c8d4dc;
-}
 
 
 #recTitle {
@@ -91,10 +85,7 @@
 
 	
 } 
-#zutList .list-cell:empty {
-    -fx-background-color:#c8d4dc;
 
-}
 #zutList {
 	-fx-background-insets: 1;
 	-fx-effect: dropshadow(one-pass-box, grey, 10, 0.7, 0, 0);
