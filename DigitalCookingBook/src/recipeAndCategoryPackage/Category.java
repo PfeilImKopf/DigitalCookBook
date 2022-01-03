@@ -3,9 +3,12 @@ package recipeAndCategoryPackage;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import javafx.scene.control.ListView;
 
 public class Category implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private ArrayList<Recipe> rezList;
 	public Category() {
