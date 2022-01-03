@@ -1,7 +1,6 @@
 package CustomStuff;
 
 import javafx.geometry.HPos;
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.GridPane;
@@ -14,8 +13,6 @@ import recipeAndCategoryPackage.Recipe;
 
 public class CustomRezListCell extends ListCell<Recipe> {
 	private StackPane stack1;
-	private StackPane stack2;
-	private StackPane stack3;
 	private Text text1;
 	private Circle circle1;
 	private Circle circle2;
@@ -32,8 +29,6 @@ public class CustomRezListCell extends ListCell<Recipe> {
 		stack1 = new StackPane();
 		text1 = new Text();
 		stack1.getChildren().addAll(circle1,text1);
-		stack2 = new StackPane();
-		stack3 = new StackPane();
 		labelName = new Label();
 		GridPane.setHalignment(labelName, HPos.CENTER);
 		labelName.setFont(new Font(15));
