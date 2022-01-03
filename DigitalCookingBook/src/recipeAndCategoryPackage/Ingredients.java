@@ -3,6 +3,10 @@ package recipeAndCategoryPackage;
 import java.io.Serializable;
 
 public class Ingredients implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private double menge;
 	private String einheit;
 	private String name;
