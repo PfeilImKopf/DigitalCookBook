@@ -3,14 +3,8 @@ package application;
 
 import java.net.URL;
 import java.util.ArrayList;
-
-import CustomStuff.CustomButton;
 import javafx.beans.binding.Bindings;
-import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
@@ -20,7 +14,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 import recipeAndCategoryPackage.Category;
 import recipeAndCategoryPackage.Recipe;
 
@@ -28,7 +21,6 @@ import recipeAndCategoryPackage.Recipe;
 public class CatPane extends GridPane {
 	private CatScrollPane catScrollPane;
 	private RezScrollPane rezScrollPane;
-	private Button catButton;
 	private Label currentCat;
 	private HBox controlBox ;
 	private HBox controlBoxCat ;
@@ -82,12 +74,8 @@ public class CatPane extends GridPane {
 		GridPane infoIconBox = new GridPane();
 		infoIconBox.setId("infoIconBox");
 		infoIconBox.setHgap(14);
-//		ColumnConstraints cinfo1 = new ColumnConstraints();
-//		cinfo1.setPercentWidth(30);
-//		ColumnConstraints cinfo2 = new ColumnConstraints();
-//		cinfo2.setPercentWidth(30);
-//		ColumnConstraints cinfo3 = new ColumnConstraints();
-//		cinfo3.setPercentWidth(30);
+
+		
 		RowConstraints rinfo1 = new RowConstraints();
 		rinfo1.setPrefHeight(24);
 		RowConstraints rinfo2 = new RowConstraints();
