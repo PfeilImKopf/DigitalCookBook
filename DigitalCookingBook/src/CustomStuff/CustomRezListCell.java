@@ -56,7 +56,7 @@ public class CustomRezListCell extends ListCell<Recipe> {
 		else {
 			setText(null);
 			labelName.setText(rez.getName());
-			text1.setText(rez.getTime());
+			text1.setText(rez.getTime().replaceAll("[^0-9]",""));
 			setGraphic(gridPane);
 		}
 	}
