@@ -21,7 +21,10 @@ public class Recipe implements Serializable {
 	public Recipe() {
 		this("....","---","---",0,"---","---",null,null,"");
 	}
-	public Recipe(String name,String time,String type,int people,String measure,String difficulty,ArrayList<Ingredients> ingList,ArrayList<Instructions> instList,String image) {
+	public Recipe(String name,String time,String type,
+			int people,String measure,String difficulty,
+			ArrayList<Ingredients> ingList,
+			ArrayList<Instructions> instList,String image) {
 		this.name = name;
 		this.ingList = new ArrayList<Ingredients>();
 		this.instList = new ArrayList<Instructions>();

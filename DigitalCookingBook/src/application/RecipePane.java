@@ -67,6 +67,19 @@ public class RecipePane extends BorderPane {
 		beschList.getColumnConstraints().addAll(bCol1,bCol2);
 		beschList.setVgap(120);
 		counter=1;
+		for (Instructions inst : recipe.getInstList()) {
+			RowConstraints bRow = new RowConstraints();
+			beschList.getRowConstraints().add(bRow);
+			Label lCount = new Label(Integer.toString(inst.getSchrittNum()));
+			lCount.setId("IngLabel");
+			GridPane.setValignment(lCount,VPos.TOP);
+			beschList.add(lCount,0,counter);
+			Label lInst = new Label(inst.getText());
+			lInst.setId("IngLabel");
+					lInst.setWrapText(true);
+
+			beschList.add(lInst,1, counter++);
+		}
  
 		
 		URL url = this.getClass().getResource(recipe.getImage());
@@ -180,17 +193,5 @@ public class RecipePane extends BorderPane {
 	public void addIngredient(Ingredients ing) {
 		zutList.getItems().add(ing);
 	}
-	public void addInstruction(Instructions inst) {
-		RowConstraints bRow = new RowConstraints();
-		beschList.getRowConstraints().add(bRow);
-		Label lCount = new Label(Integer.toString(inst.getSchrittNum()));
-		lCount.setId("IngLabel");
-		GridPane.setValignment(lCount,VPos.TOP);
-		beschList.add(lCount,0,counter);
-		Label lInst = new Label(inst.getText());
-		lInst.setId("IngLabel");
-				lInst.setWrapText(true);
 
-		beschList.add(lInst,1, counter++);
-	}
 }

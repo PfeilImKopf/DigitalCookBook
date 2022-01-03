@@ -52,7 +52,6 @@ public class Main extends Application {
 			}
 			allCats.add(cat);
 		}
-		System.out.println(allCats);
 		ArrayList<Category> allCats1 = new ArrayList<>();
 		try {
 			FileOutputStream f = new FileOutputStream(new File("myObjects.txt"));
