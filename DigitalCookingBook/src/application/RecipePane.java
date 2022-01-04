@@ -38,6 +38,8 @@ public class RecipePane extends BorderPane {
 	private StackPane imPane;
 	private StackPane titleBox;
 	private int counter;
+	private StackPane filler;
+	private StackPane filler2;
 
 	public RecipePane(Recipe recipe) {
 		setId("recipe");
@@ -141,6 +143,7 @@ public class RecipePane extends BorderPane {
 		recScroll.setFitToWidth(true);
 		recScroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
 		recScroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+		//BorderPane.setMargin(recScroll, new Insets(0,1,0,1));
 		//StackPane to better center the image
 		imPane = new StackPane();
 		imPane.setId("ImPane");
@@ -157,10 +160,14 @@ public class RecipePane extends BorderPane {
 		centerPane.setCenter(recScroll);
 		setCenter(centerPane);
 		setLeft(leftGrid);
-		StackPane filler = new StackPane();
+		filler = new StackPane();
 		filler.setId("filler");
 		filler.setPrefWidth(20);
 		setRight(filler);
+		filler2 = new StackPane();
+		filler2.setId("filler");
+		filler2.setPrefHeight(20);
+		setBottom(filler2);
 		//end of Recipe Contructor
 	}
 

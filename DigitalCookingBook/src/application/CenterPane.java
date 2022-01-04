@@ -1,5 +1,6 @@
 package application;
 
+import javafx.geometry.Insets;
 import javafx.scene.layout.BorderPane;
 
 import javafx.stage.Stage;
@@ -7,11 +8,12 @@ import recipeAndCategoryPackage.Recipe;
 
 
 public class CenterPane extends BorderPane {
-
+	private RecipePane recPane;
 	public CenterPane(Recipe recipe,Stage parent) {
 		TopControlPane topControl = new TopControlPane();
 		setTop(topControl);
-		setCenter(new RecipePane(recipe));
+		recPane = new RecipePane(recipe);
+		setCenter(recPane);
 	}
 	public void setRecipe(Recipe recipe) {
 

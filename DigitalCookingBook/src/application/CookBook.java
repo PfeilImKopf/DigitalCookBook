@@ -3,6 +3,7 @@ package application;
 import java.net.URL;
 import java.util.ArrayList;
 
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
@@ -18,8 +19,8 @@ public class CookBook extends Stage {
 	private CenterPane centerRoot;
 	public CookBook(ArrayList<Category> allCats) {	
 		try {
-			//CustomStage primaryStage = new CustomStage();
 			BorderPane root = new BorderPane();
+			root.setId("root");
 			Scene scene = new Scene(root,1280,720);
 			setScene(scene);
 			setMinWidth(1280);
@@ -32,7 +33,7 @@ public class CookBook extends Stage {
 			stackCatPane.getChildren().add(catPane);
 			stackCatPane.setId("stackCatPane");
 			root.setRight(stackCatPane);
-
+			
 			// everything else on the left/center
 			centerRoot = new CenterPane(catPane.getRecipe(),this);
 

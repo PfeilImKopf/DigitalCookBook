@@ -25,7 +25,7 @@
 
 #catPane {
 	-fx-background-color:#688cbc;
-
+	
 }
 #filler {
 	-fx-background-color:#e8c4ac;
@@ -51,6 +51,7 @@
 	-fx-background-radius:0 0 30 30;
 	-fx-background-color:#c8d4dc;
 }
+
 #recList .scroll-bar:vertical {
    -fx-padding: -100px;
    -fx-opacity: 0;
@@ -65,8 +66,12 @@
 #recList .list-cell:selected:even {
     -fx-background-color: -fx-background;
 }
+#root {
 
-
+}
+#recipe {
+	-fx-effect: innershadow(one-pass-box, grey, 10, 0.7, 0, 0);
+}
 #recTitle {
 	-fx-font-size: 40px;
 	-fx-underline: true;
@@ -76,9 +81,12 @@
 }
 #topControl {
 	-fx-background-color:#688cbc;
+
 }
 #recipeScrollPane {
-	
+
+	-fx-effect: dropshadow(one-pass-box, grey, 10, 0.7, 0, 0);
+	-fx-background-color:#f0d4ec;
 }
 #recipeLeftGrid {
 	-fx-background-color:#e8c4ac;
