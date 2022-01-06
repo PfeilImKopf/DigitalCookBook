@@ -2,8 +2,11 @@ package application;
 
 import java.net.URL;
 import java.util.ArrayList;
+
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -32,7 +35,7 @@ public class CookBook extends Stage {
 			stackCatPane.getChildren().add(catPane);
 			stackCatPane.setId("stackCatPane");
 			root.setRight(stackCatPane);
-			
+
 			// everything else on the left/center
 			centerRoot = new CenterPane(catPane.getRecipe(),this);
 
@@ -65,8 +68,23 @@ public class CookBook extends Stage {
 				});
 				root.setCenter(centerRoot);
 			});
-			
-			
+			scene.setOnKeyReleased(new EventHandler<KeyEvent>() {
+				@Override
+				public void handle(KeyEvent event) {
+					switch (event.getCode()) {
+					case ESCAPE: {	
+						if (fullscreen) {
+							setFullScreen(false);
+							centerRoot.setNormal();
+							root.setRight(catPane);
+							fullscreen = false;
+						}
+					}break;
+					default : break;
+					}
+				}
+			});
+
 			centerRoot.getFullScreen().setOnMouseClicked(e-> {
 				if (fullscreen) {
 					setFullScreen(false);
