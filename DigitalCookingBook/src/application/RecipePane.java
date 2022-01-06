@@ -2,10 +2,12 @@ package application;
 
 import java.net.URL;
 import CustomStuff.CustomIngListCell;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
@@ -36,10 +38,11 @@ public class RecipePane extends BorderPane {
 	private ScrollPane recScroll;
 	private BorderPane recBorder;
 	private StackPane imPane;
-	private StackPane titleBox;
+	private GridPane titleBox;
 	private int counter;
 	private StackPane filler;
 	private StackPane filler2;
+	private Button fullScreen;
 
 	public RecipePane(Recipe recipe) {
 		setId("recipe");
@@ -130,10 +133,25 @@ public class RecipePane extends BorderPane {
 		//BorderPane for the center for title, Image and Instructions
 		centerPane = new BorderPane();
 		
+		
 		//title on the top
-		titleBox = new StackPane();
-		titleBox.getChildren().add(title);
+		titleBox = new GridPane();
 		titleBox.setId("titleBox");
+		ColumnConstraints titleCol1 = new ColumnConstraints();
+		titleCol1.setPercentWidth(10);
+		ColumnConstraints titleCol2 = new ColumnConstraints();
+		titleCol2.setPercentWidth(80);
+		ColumnConstraints titleCol3 = new ColumnConstraints();
+		titleCol3.setPercentWidth(10);
+		titleBox.getColumnConstraints().addAll(titleCol1,titleCol2,titleCol3);
+		
+		//Button for fullscreen
+		fullScreen = new Button("TEST");
+		
+		titleBox.add(title, 1,0);
+		titleBox.add(fullScreen, 2,0);
+		GridPane.setHalignment(title, HPos.CENTER);
+		GridPane.setHalignment(fullScreen, HPos.RIGHT);
 		centerPane.setTop(titleBox);
 		//ScrollPane for the center of the centerPane, so that you can see the image first and scroll
 		//down for all instructions. Title will stay visable but the not so important 

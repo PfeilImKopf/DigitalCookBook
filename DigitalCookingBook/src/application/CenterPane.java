@@ -1,8 +1,6 @@
 package application;
 
-import javafx.geometry.Insets;
 import javafx.scene.layout.BorderPane;
-
 import javafx.stage.Stage;
 import recipeAndCategoryPackage.Recipe;
 

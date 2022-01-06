@@ -25,7 +25,6 @@
 
 #catPane {
 	-fx-background-color:#688cbc;
-	
 }
 #filler {
 	-fx-background-color:#e8c4ac;
@@ -81,7 +80,6 @@
 }
 #topControl {
 	-fx-background-color:#688cbc;
-
 }
 #recipeScrollPane {
 
@@ -90,8 +88,6 @@
 }
 #recipeLeftGrid {
 	-fx-background-color:#e8c4ac;
-
-	
 } 
 
 #zutList {

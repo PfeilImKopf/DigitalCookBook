@@ -2,8 +2,6 @@ package application;
 
 import java.net.URL;
 import java.util.ArrayList;
-
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
