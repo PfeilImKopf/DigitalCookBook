@@ -1,5 +1,6 @@
 package application;
 
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import recipeAndCategoryPackage.Recipe;
@@ -7,8 +8,9 @@ import recipeAndCategoryPackage.Recipe;
 
 public class CenterPane extends BorderPane {
 	private RecipePane recPane;
+	private TopControlPane topControl;
 	public CenterPane(Recipe recipe,Stage parent) {
-		TopControlPane topControl = new TopControlPane();
+		topControl = new TopControlPane();
 		setTop(topControl);
 		recPane = new RecipePane(recipe);
 		setCenter(recPane);
@@ -16,5 +18,18 @@ public class CenterPane extends BorderPane {
 	public void setRecipe(Recipe recipe) {
 
 		setCenter(new RecipePane(recipe));
+	}
+	public Button getFullScreen() {
+		return recPane.getFullScreen();
+	}
+	public RecipePane getRecPane() {
+		return recPane;
+	}
+	public void setFull() {
+		setTop(null);	
+	}
+	public void setNormal() {
+		setTop(topControl);
+		setCenter(recPane);
 	}
 }

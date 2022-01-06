@@ -15,6 +15,7 @@ public class CookBook extends Stage {
 	private CatPane catPane;
 	private StackPane stackCatPane;
 	private CenterPane centerRoot;
+	private boolean fullscreen;
 	public CookBook(ArrayList<Category> allCats) {	
 		try {
 			BorderPane root = new BorderPane();
@@ -24,7 +25,7 @@ public class CookBook extends Stage {
 			setMinWidth(1280);
 			setMinHeight(720);
 			setTitle("Digitales Kochbuch");
-
+			fullscreen = false;
 			//category and recipe list on the right
 			catPane = new CatPane(allCats);
 			stackCatPane = new StackPane();
@@ -63,6 +64,21 @@ public class CookBook extends Stage {
 					centerRoot.setRecipe(catPane.getRecList().getSelectionModel().getSelectedItem());
 				});
 				root.setCenter(centerRoot);
+			});
+			
+			
+			centerRoot.getFullScreen().setOnMouseClicked(e-> {
+				if (fullscreen) {
+					setFullScreen(false);
+					centerRoot.setNormal();
+					root.setRight(catPane);
+					fullscreen = false;
+				} else {
+					setFullScreen(true);
+					root.setRight(null);
+					centerRoot.setFull();
+					fullscreen = true;
+				}
 			});
 
 			// make it visible

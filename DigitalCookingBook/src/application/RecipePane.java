@@ -189,6 +189,10 @@ public class RecipePane extends BorderPane {
 		//end of Recipe Contructor
 	}
 
+	public Button getFullScreen() {
+		return fullScreen;
+	}
+
 	public ImageView getImView() {
 		return imView;
 	}
