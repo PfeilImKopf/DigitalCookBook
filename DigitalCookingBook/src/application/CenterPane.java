@@ -16,8 +16,7 @@ public class CenterPane extends BorderPane {
 		setCenter(recPane);
 	}
 	public void setRecipe(Recipe recipe) {
-
-		setCenter(new RecipePane(recipe));
+		recPane.setRecipe(recipe);
 	}
 	public Button getFullScreen() {
 		return recPane.getFullScreen();

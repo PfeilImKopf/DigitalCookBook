@@ -26,7 +26,7 @@ import recipeAndCategoryPackage.Recipe;
 
 public class RecipePane extends BorderPane {
 	private ListView<Ingredients> zutList;
-	private GridPane beschList;
+	private GridPane instructList;
 	private Image image;
 	private ImageView imView;
 	private HBox info;
@@ -47,62 +47,41 @@ public class RecipePane extends BorderPane {
 	public RecipePane(Recipe recipe) {
 		setId("recipe");
 		zutList = new ListView<Ingredients>();
-		zutList.getItems().addAll(recipe.getIngList());
+		infoL = new VBox();
+		infoR = new VBox();
+		instructList = new GridPane();
+	
+		setRecipe(recipe);	
+		instructList.setId("beschList");
 		zutList.setId("zutList");
 		zutList.setMaxWidth(200);
 		zutList.setCellFactory(e-> new CustomIngListCell());
-		beschList = new GridPane();
-		beschList.setId("beschList");
+		RowConstraints bRow = new RowConstraints();
+		instructList.getRowConstraints().add(bRow);
 		ColumnConstraints bCol1 = new ColumnConstraints();
 		bCol1.setMinWidth(50);
 		bCol1.setMaxWidth(50);
 		ColumnConstraints bCol2 = new ColumnConstraints();
 		bCol2.setPercentWidth(90);
-		beschList.getColumnConstraints().addAll(bCol1,bCol2);
-		beschList.setVgap(120);
-		counter=1;
-		for (Instructions inst : recipe.getInstList()) {
-			RowConstraints bRow = new RowConstraints();
-			beschList.getRowConstraints().add(bRow);
-			Label lCount = new Label(Integer.toString(inst.getSchrittNum()));
-			lCount.setId("IngLabel");
-			GridPane.setValignment(lCount,VPos.TOP);
-			beschList.add(lCount,0,counter);
-			Label lInst = new Label(inst.getText());
-			lInst.setId("IngLabel");
-					lInst.setWrapText(true);
+		instructList.getColumnConstraints().addAll(bCol1,bCol2);
+		instructList.setVgap(120);
 
-			beschList.add(lInst,1, counter++);
-		}
  
-		
-		URL url = this.getClass().getResource(recipe.getImage());
-		if (url == null) {
-			System.out.println("Resource (png) not found. Aborting.");
-			System.exit(-1);
-		}
-		String png = url.toExternalForm(); 
-		image = new Image(png);
-		imView = new ImageView(image);
 		
 		
 		//leftTop InfoBox for informations of the recipe
 		info = new HBox();
 		info.setId("info");
 		GridPane.setMargin(info, new Insets(20,20,20,20));
-		infoL = new VBox();
-		infoR = new VBox();
+
 		//Info in the InfoBox
 		infoL.getChildren().addAll(new Label("Dauer: "), new Label("Personen: "), new Label("Schwierigkeit: "), new Label("Typ: "));
 		for (Node child : infoL.getChildren()) {
 			VBox.setMargin(child, new Insets(5,5,5,5));	
 		}
 		infoL.setAlignment(Pos.CENTER_LEFT);
-		infoR.getChildren().addAll(new Label(recipe.getTime()), new Label(Integer.toString(recipe.getPeople())),
-				new Label(recipe.getDifficulty()), new Label(recipe.getType()));
-		for (Node child : infoR.getChildren()) {
-			VBox.setMargin(child, new Insets(5,5,5,5));	
-		}
+		
+		
 		infoR.setAlignment(Pos.CENTER_RIGHT);
 		info.getChildren().addAll(infoL, infoR);
 		for (Node child : info.getChildren()) {
@@ -171,8 +150,8 @@ public class RecipePane extends BorderPane {
 		recBorder = new BorderPane();
 		recBorder.setId("recipeBorder");
 		recBorder.setTop(imPane);
-		recBorder.setCenter(this.beschList);
-		BorderPane.setMargin(beschList, new Insets(50,5,50,5));
+		recBorder.setCenter(this.instructList);
+		BorderPane.setMargin(instructList, new Insets(50,5,50,5));
 		//adding everything
 		recScroll.setContent(recBorder);
 		centerPane.setCenter(recScroll);
@@ -202,7 +181,7 @@ public class RecipePane extends BorderPane {
 		return zutList;
 	}
 	public GridPane getBeschList() {
-		return beschList;
+		return instructList;
 	}
 	public HBox getInfo() {
 		return info;
@@ -210,6 +189,50 @@ public class RecipePane extends BorderPane {
 
 	public void addIngredient(Ingredients ing) {
 		zutList.getItems().add(ing);
+	}
+	private void setZutList(Recipe recipe) {
+		zutList.getItems().clear();
+		zutList.getItems().addAll(recipe.getIngList());
+	}
+	private void setInfos(Recipe recipe) {
+		infoR.getChildren().clear();
+		infoR.getChildren().addAll(new Label(recipe.getTime()), new Label(Integer.toString(recipe.getPeople())),
+				new Label(recipe.getDifficulty()), new Label(recipe.getType()));
+		for (Node child : infoR.getChildren()) {
+			VBox.setMargin(child, new Insets(5,5,5,5));
+		}
+	}
+	private void setImView(Recipe recipe) {
+		URL url = this.getClass().getResource(recipe.getImage());
+		if (url == null) {
+			System.out.println("Resource (png) not found. Aborting.");
+			System.exit(-1);
+		}
+		String png = url.toExternalForm(); 
+		image = new Image(png);
+		imView = new ImageView(image);
+	}
+	private void setInstructions(Recipe recipe) {
+		counter=1;
+		instructList.getChildren().clear();
+		for (Instructions inst : recipe.getInstList()) {
+
+			Label lCount = new Label(Integer.toString(inst.getSchrittNum()));
+			lCount.setId("IngLabel");
+			GridPane.setValignment(lCount,VPos.TOP);
+			instructList.add(lCount,0,counter);
+			Label lInst = new Label(inst.getText());
+			lInst.setId("IngLabel");
+					lInst.setWrapText(true);
+
+			instructList.add(lInst,1, counter++);
+		}
+	}
+	public void setRecipe(Recipe recipe) {
+		setZutList(recipe); 
+		setInfos(recipe);
+		setImView(recipe);
+		setInstructions(recipe);
 	}
 
 }
