@@ -102,7 +102,7 @@ public class Main extends Application {
 			buttonWrite.setFont(new Font("Arial", 20));
 			buttonWrite.setTextAlignment(TextAlignment.CENTER);
 			buttonWrite.setOnAction(event -> {
-				new CookBookWriter();
+				new CookBookWriter(allCats1);
 				primaryStage.hide();
 			});
 			buttonShow.setMinWidth(220);

@@ -33,11 +33,11 @@ public class Recipe implements Serializable {
 		this.ingList = new ArrayList<Ingredients>();
 		this.instList = new ArrayList<Instructions>();
 		this.image="tee.png";
-		this.time="30 min";
-		this.difficulty="hard";
-		this.people=4;
-		this.measure="ml";
-		this.type="vegan";
+		this.time=time;
+		this.difficulty=difficulty;
+		this.people=people;
+		this.measure=measure;
+		this.type=type;
 	}
 	public void setTime(String time) {
 		this.time = time;
