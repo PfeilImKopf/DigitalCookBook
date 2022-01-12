@@ -29,7 +29,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		ArrayList<Category> allCats = new ArrayList<>();
-		for (int i=0;i<=22;i++) {
+		for (int i=0;i<=30;i++) {
 			Category cat = new Category("Kategorie"+i);
 			int ran1 = (int)(Math.random()*10);
 			for (int j =0;j<=ran1;j++) {

@@ -58,12 +58,7 @@ public class CatPane extends GridPane {
 		controlBox = new HBox();
 		controlBox.setId("recipeControlBox");
 		controlBox.setMaxHeight(100);
-//		catButton = new CustomButton("Neue Kategorie");
-//		controlBox.getChildren().addAll(catButton);
-//		for (Node child : controlBox.getChildren()) {
-//			HBox.setMargin(child, new Insets(5,5,5,5));
-//		}
-		
+
 		//finishing the controlBoxCat on the bottom of catList
 		controlBoxCat = new HBox();
 		controlBoxCat.setId("recipeControlBox");

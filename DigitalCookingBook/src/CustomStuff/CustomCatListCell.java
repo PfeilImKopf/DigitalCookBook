@@ -28,6 +28,8 @@ public class CustomCatListCell extends ListCell<Category> {
 			setText(null);
 			labelName.setText(cat.getName());
 			setGraphic(gridPane);
+
 		}
 	}
+
 }

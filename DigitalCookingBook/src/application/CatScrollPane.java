@@ -19,10 +19,12 @@ public CatScrollPane(ArrayList<Category> allCats) {
 	catList.setPrefWidth(220);
 	catList.getItems().addAll(allCats);
 	catList.setCellFactory(e-> new CustomCatListCell());
-	catList.setMaxHeight(Double.MAX_VALUE);
+	catList.setMinHeight(36*catList.getItems().size());
 	//Height Binding for catList and catPane and catlist to the parent Stage
     catList.prefHeightProperty().bind(prefHeightProperty());
+    if (!catList.getItems().isEmpty()) {
 	catList.getSelectionModel().selectFirst();
+    }
 	setContent(catList);
 }
 public ListView<Category> getCatList() {

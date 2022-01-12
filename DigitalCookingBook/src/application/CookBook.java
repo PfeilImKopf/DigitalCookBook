@@ -58,10 +58,12 @@ public class CookBook extends Stage {
 			//Listener for stage property to scale the Catlist and rezList
 			heightProperty().addListener((obs,oldH,newH) -> {
 				catPane.getCatScrollPane().setPrefHeight(newH.doubleValue());
+
 				catPane.getRezScrollPane().setPrefHeight(newH.doubleValue()-catPane.getControlBox().getHeight()-48);
 			});
 			showingProperty().addListener((obs,oldH,newH) -> {
 				catPane.getCatScrollPane().setPrefHeight(getHeight());
+
 				catPane.getRezScrollPane().setPrefHeight(getHeight()-catPane.getControlBox().getHeight()-48);
 				catPane.getRecList().setOnMouseClicked(e-> {
 					centerRoot.setRecipe(catPane.getRecList().getSelectionModel().getSelectedItem());
