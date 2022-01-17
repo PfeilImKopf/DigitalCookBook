@@ -32,7 +32,7 @@ public class Recipe implements Serializable {
 		this.name = name;
 		this.ingList = new ArrayList<Ingredients>();
 		this.instList = instList;
-		this.image="tee.png";
+		this.image="Tee.png";
 		this.time=time;
 		this.difficulty=difficulty;
 		this.people=people;

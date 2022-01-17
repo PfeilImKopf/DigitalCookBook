@@ -26,6 +26,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import recipeAndCategoryPackage.Category;
 import recipeAndCategoryPackage.Ingredients;
@@ -35,6 +36,7 @@ import recipeAndCategoryPackage.Recipe;
 public class CookBookWriter extends Stage {
 	public CookBookWriter(ArrayList<Category> allCats) {
 		try {
+			ArrayList<String> im = new ArrayList<String>();
 			int taCounter = 1;
 			ArrayList<TextArea> taList = new ArrayList<TextArea>();
 			ArrayList<TextArea> naList = new ArrayList<TextArea>();
@@ -61,6 +63,7 @@ public class CookBookWriter extends Stage {
 			Button save = new Button("Speichern");
 			Button back = new Button("Zurueck");
 			Button gotoList = new Button("Rezeptliste");
+			Button pic = new Button("Bild hochladen");
 			
 			TextArea na = new TextArea("1");
 			na.setMaxHeight(20);
@@ -122,6 +125,7 @@ public class CookBookWriter extends Stage {
 			buttonBox.getChildren().add(save);
 			buttonBox.getChildren().add(back);
 			buttonBox.getChildren().add(gotoList);
+			buttonBox.getChildren().add(pic);
 			buttonBox.setAlignment(Pos.CENTER);
 			
 			taList.add(ta);
@@ -152,6 +156,8 @@ public class CookBookWriter extends Stage {
 			 
 			save.setOnAction(e -> {
 				try {
+					boolean checkRec = true;
+					
 					String name = new String(headField.getText());
 					Category c = new Category(cateField.getValue());
 					String time = new String(duraField.getText());
@@ -161,14 +167,16 @@ public class CookBookWriter extends Stage {
 					String difficulty = new String(diffField.getText());
 					ArrayList<Ingredients> ingList = new ArrayList<Ingredients>();
 					ArrayList<Instructions> instList = new ArrayList<Instructions>();
-					String image = new String();
+					String image = new String(im.get(0));
 					
 					for (int i = 0; i < taList.size();i++) {
 						if (taList.get(i).getText().trim() != "") {
 							instList.add(new Instructions(Integer.parseInt(naList.get(i).getText()), taList.get(i).getText()));
 						}
 					}
-					Recipe r = new Recipe(name, time, type, people, measure, difficulty, ingList, instList, image);
+//					if (checkRec) {
+						Recipe r = new Recipe(name, time, type, people, measure, difficulty, ingList, instList, image);
+//					}
 					
 					boolean check = true;
 					for (int i = 0; i < allCats.size(); i++) {
@@ -192,6 +200,20 @@ public class CookBookWriter extends Stage {
 					new CookBook(allCats);
 				} catch (Exception e2) {
 					System.out.println(e2);
+				}
+			});
+			pic.setOnAction(e -> {
+				FileChooser fc = new FileChooser();
+				fc.setTitle("Bild hochladen");
+				fc.getExtensionFilters().addAll(
+					new FileChooser.ExtensionFilter("All Images", "*.jpg", "*.png"),
+					new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+					new FileChooser.ExtensionFilter("PNG", "*.png")					
+				);
+				File picture = fc.showOpenDialog(getOwner());
+				if (picture != null) {
+					im.clear();
+					im.add(picture.getAbsolutePath());
 				}
 			});
 			
