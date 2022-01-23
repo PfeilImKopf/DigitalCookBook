@@ -36,13 +36,19 @@ import recipeAndCategoryPackage.Recipe;
 public class CookBookWriter extends Stage {
 	public CookBookWriter(ArrayList<Category> allCats) {
 		try {
+			
 			ArrayList<String> im = new ArrayList<String>();
-			int taCounter = 1;
 			ArrayList<TextArea> taList = new ArrayList<TextArea>();
 			ArrayList<TextArea> naList = new ArrayList<TextArea>();
+			
+			ArrayList<TextArea> iaList = new ArrayList<TextArea>();
+			ArrayList<TextArea> niaList = new ArrayList<TextArea>();
+			ArrayList<TextArea>	unitList = new ArrayList<TextArea>();
+			
 			BorderPane root = new BorderPane();
 			GridPane gp = new GridPane();
 			GridPane taPane = new GridPane();
+			GridPane iaPane = new GridPane();
 			VBox fld = new VBox();
 			VBox des = new VBox();
 			HBox fieldBox = new HBox();
@@ -50,10 +56,13 @@ public class CookBookWriter extends Stage {
 			HBox listBox = new HBox();
 			HBox buttonBox = new HBox();
 			Scene scene = new Scene(root,1280,720);
+			
 			ArrayList<String> al = new ArrayList<String>();
+			
 			for (int i = 0; i < allCats.size(); i++) {
 				al.add(allCats.get(i).getName());
 			}
+			
 			setScene(scene);
 			setMinWidth(1280);
 			setMinHeight(720);
@@ -68,8 +77,18 @@ public class CookBookWriter extends Stage {
 			TextArea na = new TextArea("1");
 			na.setMaxHeight(20);
 			na.setMaxWidth(20);
-			TextArea ta = new TextArea();
 			na.setEditable(false);
+			TextArea ta = new TextArea();
+			
+			
+			TextArea nia = new TextArea();
+			nia.setMaxHeight(20);
+			nia.setMaxWidth(20);
+			TextArea ia = new TextArea();
+			TextArea unit = new TextArea();
+			unit.setMaxHeight(20);
+			unit.setMaxWidth(20);
+
 			
 			TextField headField = new TextField();
 			ComboBox<String> cateField = new ComboBox<String>(FXCollections.observableArrayList(al));
@@ -81,11 +100,14 @@ public class CookBookWriter extends Stage {
 			TextField typeField = new TextField();
 			TextField measField = new TextField();
 			
-			ListView<Ingredients> IngeView = new ListView<Ingredients>();
-			IngeView.setEditable(true);
+			
 			
 			taPane.add(na, 0, 0);
 			taPane.add(ta, 1, 0);
+			
+			iaPane.add(nia, 1, 0);
+			iaPane.add(ia, 0, 0);
+			iaPane.add(unit, 2, 0);
 			
 			fld.getChildren().add(headField);
 			fld.getChildren().add(cateField);
@@ -95,7 +117,7 @@ public class CookBookWriter extends Stage {
 			fld.getChildren().add(typeField);
 			fld.getChildren().add(measField);
 			fld.getChildren().add(taPane);
-			fld.getChildren().add(IngeView);
+			fld.getChildren().add(iaPane);
 			fld.setSpacing(8);
 			
 			des.getChildren().add(new Label("Rezeptname: "));
@@ -153,6 +175,40 @@ public class CookBookWriter extends Stage {
 					taList.get(taList.size()-2).deselect();
 				}
 			});
+			
+			iaList.add(ia);
+			niaList.add(nia);
+			unitList.add(unit);
+			ia.setOnKeyTyped(e -> {
+				String s = ia.getText();
+				if (s.length() == 1) {
+					
+					iaList.add(0, new TextArea());
+					niaList.add(new TextArea());
+					unitList.add(new TextArea());
+
+					unitList.get(unitList.size()-1).setMaxHeight(20);
+					unitList.get(unitList.size()-1).setMaxWidth(20);
+
+					niaList.get(niaList.size()-1).setMaxHeight(20);
+					niaList.get(niaList.size()-1).setMaxWidth(20);
+					
+					for (int i = 0; i < iaList.size()-1; i++) {
+						iaList.get(i).setText(iaList.get(i+1).getText());
+						iaList.get(i+1).setText("");
+					}
+					iaPane.getChildren().clear();
+					for (int i = 0; i < iaList.size(); i++) {
+						iaPane.add(niaList.get(i), 1, i);
+						iaPane.add(iaList.get(i), 0, i);
+						iaPane.add(unitList.get(i), 2, i);
+					}
+					
+					iaList.get(iaList.size()-2).requestFocus();
+					iaList.get(iaList.size()-2).selectEnd();
+					iaList.get(iaList.size()-2).deselect();
+				}
+			});
 			 
 			save.setOnAction(e -> {
 				try {
@@ -169,10 +225,15 @@ public class CookBookWriter extends Stage {
 					ArrayList<Instructions> instList = new ArrayList<Instructions>();
 					String image = new String(im.get(0));
 					
-					for (int i = 0; i < taList.size();i++) {
-						if (taList.get(i).getText().trim() != "") {
+					for (int i = 0; i < taList.size()-1;i++) {
+//						if (taList.get(i).getText().trim() != "") {
 							instList.add(new Instructions(Integer.parseInt(naList.get(i).getText()), taList.get(i).getText()));
-						}
+//						}
+					}
+					for (int i = 0; i < iaList.size()-1;i++) {
+//						if ((iaList.get(i).getText().trim() != "") && (naList.get(i).getText().trim() != "") && (unitList.get(i).getText().trim() != "")){
+							ingList.add(new Ingredients(Double.parseDouble(niaList.get(i).getText()), unitList.get(i).getText(), iaList.get(i).getText()));
+//						}
 					}
 //					if (checkRec) {
 						Recipe r = new Recipe(name, time, type, people, measure, difficulty, ingList, instList, image);
@@ -191,7 +252,7 @@ public class CookBookWriter extends Stage {
 					}
 
 				} catch (Exception ex) {
-					System.out.println(ex);
+					ex.printStackTrace(System.out);
 				}
 			});
 			
