@@ -1,5 +1,7 @@
 package application;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import CustomStuff.CustomIngListCell;
 import javafx.geometry.HPos;
@@ -50,7 +52,7 @@ public class RecipePane extends BorderPane {
 		infoL = new VBox();
 		infoR = new VBox();
 		instructList = new GridPane();
-	
+		imPane = new StackPane();
 		setRecipe(recipe);	
 		instructList.setId("beschList");
 		zutList.setId("zutList");
@@ -142,9 +144,7 @@ public class RecipePane extends BorderPane {
 		recScroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 		//BorderPane.setMargin(recScroll, new Insets(0,1,0,1));
 		//StackPane to better center the image
-		imPane = new StackPane();
-		imPane.setId("ImPane");
-		imPane.getChildren().add(imView);
+
 		StackPane.setMargin(imView, new Insets(15,0,0,0));
 		//BorderPane on the ScrollPane for the effect described above
 		recBorder = new BorderPane();
@@ -203,14 +203,19 @@ public class RecipePane extends BorderPane {
 		}
 	}
 	private void setImView(Recipe recipe) {
-		URL url = this.getClass().getResource(recipe.getImage());
-		if (url == null) {
-			System.out.println("Resource (png) not found. Aborting.");
-			System.exit(-1);
+		try {
+			imPane.getChildren().clear();
+			image = new Image(new FileInputStream(recipe.getImage()));
+			System.out.println("hurentest: "+recipe.getImage());
+			imView = new ImageView(image);
+			
+			imPane.setId("ImPane");
+			imPane.getChildren().add(imView);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		String png = url.toExternalForm(); 
-		image = new Image(png);
-		imView = new ImageView(image);
+		
 	}
 	private void setInstructions(Recipe recipe) {
 		counter=1;

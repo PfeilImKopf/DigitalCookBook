@@ -23,16 +23,16 @@ public class Recipe implements Serializable {
 	private String image;
 
 	public Recipe() {
-		this("....","---","---",0,"---","---",null,new ArrayList<Instructions>(),"");
+		this("....","---","---",0,"---","---",new ArrayList<Ingredients>(),new ArrayList<Instructions>(),"C:\\Users\\Ma-La\\OneDrive\\Bilder\\ko.PNG");
 	}
 	public Recipe(String name,String time,String type,
 			int people,String measure,String difficulty,
 			ArrayList<Ingredients> ingList,
 			ArrayList<Instructions> instList,String image) {
 		this.name = name;
-		this.ingList = new ArrayList<Ingredients>();
+		this.ingList = ingList;
 		this.instList = instList;
-		this.image="Tee.png";
+		this.image=image;
 		this.time=time;
 		this.difficulty=difficulty;
 		this.people=people;

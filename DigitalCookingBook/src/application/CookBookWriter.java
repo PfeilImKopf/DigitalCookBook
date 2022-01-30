@@ -224,6 +224,7 @@ public class CookBookWriter extends Stage {
 					ArrayList<Ingredients> ingList = new ArrayList<Ingredients>();
 					ArrayList<Instructions> instList = new ArrayList<Instructions>();
 					String image = new String(im.get(0));
+					System.out.println("test: "+image);
 					
 					for (int i = 0; i < taList.size()-1;i++) {
 //						if (taList.get(i).getText().trim() != "") {
