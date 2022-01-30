@@ -2,7 +2,7 @@ package recipeAndCategoryPackage;
 
 
 import java.io.Serializable;
-
+import java.net.URL;
 import java.util.ArrayList;
 
 
@@ -23,7 +23,7 @@ public class Recipe implements Serializable {
 	private String image;
 
 	public Recipe() {
-		this("....","---","---",0,"---","---",new ArrayList<Ingredients>(),new ArrayList<Instructions>(),"C:\\Users\\Ma-La\\OneDrive\\Bilder\\ko.PNG");
+		this("....","---","---",0,"---","---",new ArrayList<Ingredients>(),new ArrayList<Instructions>(), "" );
 	}
 	public Recipe(String name,String time,String type,
 			int people,String measure,String difficulty,

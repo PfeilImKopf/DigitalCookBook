@@ -3,6 +3,7 @@ package application;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
+
 import CustomStuff.CustomIngListCell;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -205,10 +206,15 @@ public class RecipePane extends BorderPane {
 	private void setImView(Recipe recipe) {
 		try {
 			imPane.getChildren().clear();
-			image = new Image(new FileInputStream(recipe.getImage()));
-			System.out.println("hurentest: "+recipe.getImage());
+			if ( recipe.getImage().isEmpty()) {
+				  URL url = this.getClass().getResource("Tee.png");
+				  String png = url.toExternalForm(); 
+			      image = new Image(png);
+			} else {
+				image = new Image(new FileInputStream(recipe.getImage()));
+				
+			}
 			imView = new ImageView(image);
-			
 			imPane.setId("ImPane");
 			imPane.getChildren().add(imView);
 		} catch (FileNotFoundException e) {
