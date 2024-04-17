@@ -15,6 +15,7 @@ body:
       label: Operating System
       description: Which operating system did the bug occur on?
       options:
+        - PLEASE SELECT!
         - Windows 7
         - Windows 10
         - Windows 11
@@ -37,6 +38,7 @@ body:
       label: Report Name
       description: Which report did you execute for the bug to occur?
       options:
+        - PLEASE SELECT!
         - Microsoft Windows 7
         - Microsoft Windows 10
         - Microsoft Windows 10 GDPR
