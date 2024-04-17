@@ -3,7 +3,7 @@ description: If you have a problem or bug with the AudiTAP.
 title: "[Bug]"
 labels: ["bug"]
 projects: []
-assignees:
+assignees: []
 body:
   - type: markdown
     attributes:
