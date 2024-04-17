@@ -28,6 +28,7 @@ body:
         - Linux - Fedora
         - Linux - Red Hat
         - Linux - SUSE
+      default: 0
     validations:
       required: true
       
