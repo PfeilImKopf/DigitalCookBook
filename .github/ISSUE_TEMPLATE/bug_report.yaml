@@ -21,6 +21,47 @@ body:
     validations:
       required: true
       
+  - type: dropdown
+    id: report
+    attributes:
+      label: Report Name
+      description: Which report did you execute for the bug to occur?
+      options:
+        - Microsoft Windows 7
+        - Microsoft Windows 10
+        - Microsoft Windows 10 GDPR
+        - Microsoft Windows 10 BSI
+        - Microsoft Windows 10 Stand-alone
+        - Microsoft Windows 11
+        - Microsoft Windows Server 2012
+        - Microsoft Windows Server 2016
+        - Microsoft Windows Server 2016 DC
+        - Microsoft Windows Server 2019
+        - Microsoft Windows Server 2019 DC
+        - Microsoft Windows Server 2022
+        - Microsoft Windows Server 2022 DC
+        - Debian 10
+        - Debian 11
+        - Fedora 35
+        - Red Hat Enterprise Linux 8
+        - SUSE Linux Enterprise 15
+        - Ubuntu 20.04
+        - Ubuntu 22.04
+        - Google Chrome
+        - Mozilla Firefox
+        - Microsoft Edge
+        - Microsoft Internet Explorer 11
+        - Microsoft IIS10
+        - Microsoft Office 2016 Excel
+        - Microsoft Office 2016 Outlook
+        - Microsoft Office 2016 PowerPoint
+        - Microsoft Office 2016 SkypeForBusiness
+        - Microsoft Office 2016 Word
+        - Microsoft Office 2016 
+        - Microsoft SQL Server 2016
+    validations:
+      required: true    
+      
   - type: checkboxes
     id: version_check
     attributes:
@@ -36,7 +77,7 @@ body:
       label: What happened?
       description: Also tell us, what did you expect to happen?
       placeholder: Tell us what you see!
-      value: "A bug happened!"
+      value: ""
     validations:
       required: true
  
