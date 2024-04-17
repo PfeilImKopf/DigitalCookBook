@@ -6,6 +6,7 @@ projects: []
 assignees: []
 body:
   - type: dropdown
+    id: OS
     attributes:
       label: Which operating system did the bug occur on?
       options:
