@@ -23,8 +23,8 @@ body:
       label: Current Version?
       description: Have you already ensured that you are working on our current version of the AuditTAP?
       options:
-        - This bug oocured on version 5.9 of the AuditTAP
-      required: true
+        - label: This bug oocured on version 5.9 of the AuditTAP
+          required: true
       
   - type: textarea
     id: what-happened
