@@ -1,5 +1,5 @@
 name: Bug Report
-description: If you have a problem or bug with the AudiTAP.
+description: If you have a problem or bug with the AuditTAP.
 title: "[Bug]: "
 labels: ["bug"]
 projects: []
@@ -17,17 +17,15 @@ body:
     validations:
       required: true
       
-  - type: dropdown
-    id: version
+  - type: checkboxes
+    id: version_check
     attributes:
-      label: Version
-      description: What version of our software are you running?
+      label: Current Version?
+      description: Have you already ensured that you are working on our current version of the AuditTAP?
       options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
-      default: 0
-    validations:
+        - This bug oocured on version 5.9 of the AuditTAP
       required: true
+      
   - type: textarea
     id: what-happened
     attributes:
