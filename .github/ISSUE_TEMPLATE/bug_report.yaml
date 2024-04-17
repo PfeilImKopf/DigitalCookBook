@@ -28,6 +28,8 @@ body:
         - Linux - Fedora
         - Linux - Red Hat
         - Linux - SUSE
+    validations:
+      required: true    
       
   - type: dropdown
     id: report
