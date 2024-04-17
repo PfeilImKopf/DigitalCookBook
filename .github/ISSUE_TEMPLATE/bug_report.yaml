@@ -28,7 +28,7 @@ body:
         - Linux - Fedora
         - Linux - Red Hat
         - Linux - SUSE
-      value: 
+      value: " "
       default: 4
     validations:
       required: true
