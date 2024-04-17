@@ -15,9 +15,19 @@ body:
       label: Operating System
       description: Which operating system did the bug occur on?
       options:
+        - Windows 7
         - Windows 10
         - Windows 11
-        - Linux
+        - Microsoft Windows 10 Stand-alone
+        - Microsoft Windows 11 Stand-alone
+        - Microsoft Windows Server 2012
+        - Microsoft Windows Server 2016
+        - Microsoft Windows Server 2019
+        - Microsoft Windows Server 2022
+        - Linux - Debian
+        - Linux - Fedora
+        - Linux - Red Hat
+        - Linux - SUSE
     validations:
       required: true
       
@@ -32,6 +42,7 @@ body:
         - Microsoft Windows 10 GDPR
         - Microsoft Windows 10 BSI
         - Microsoft Windows 10 Stand-alone
+        - Microsoft Windows 11 Stand-alone
         - Microsoft Windows 11
         - Microsoft Windows Server 2012
         - Microsoft Windows Server 2016
