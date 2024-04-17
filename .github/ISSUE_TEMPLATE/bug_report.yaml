@@ -5,10 +5,7 @@ labels: ["bug"]
 projects: []
 assignees: []
 body:
-  - tpye: markdown
-    attributes:
-      value:|
-      Your feedback and support is greatly appreciated, thanks for your time!
+
   - type: dropdown
     id: operating_system
     attributes:
