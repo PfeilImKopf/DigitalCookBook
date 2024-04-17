@@ -29,7 +29,8 @@ body:
   - type: textarea
     id: what-happened
     attributes:
-      label: Your feedback and support is greatly appreciated, thanks for contributing! |
+      label: |
+      Your feedback and support is greatly appreciated, thanks for contributing!
       What happened?
       description: Also tell us, what did you expect to happen?
       placeholder: Tell us what you see!
