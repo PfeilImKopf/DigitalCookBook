@@ -83,6 +83,13 @@ body:
       options:
         - label: This bug occured on version 5.9 of the AuditTAP
           required: true
+
+  - type: input
+    id: benchmark_id
+    attributes: 
+      label: Banchmark and ID
+      description: If the bug occurred in connection with a benchmark, please provide us with the benchmark name and its corresponding ID to which the bug is linked.
+      placeholder: e.g. CIS benchmark 1.1.6
       
   - type: textarea
     id: what-happened
