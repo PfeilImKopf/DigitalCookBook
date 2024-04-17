@@ -1,10 +1,9 @@
 name: Bug Report
-description: File a bug report.
-title: "[Bug]: "
-labels: ["bug", "triage"]
-projects: ["octo-org/1", "octo-org/44"]
+description: If you have a problem or bug with the AudiTAP.
+title: "[Bug]"
+labels: ["bug"]
+projects: []
 assignees:
-  - octocat
 body:
   - type: markdown
     attributes:
