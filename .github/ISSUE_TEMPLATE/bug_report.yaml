@@ -5,18 +5,15 @@ labels: ["bug"]
 projects: []
 assignees: []
 body:
-  - type: markdown
+  - type: dropdown
     attributes:
-      value: |
-        Thanks for taking the time to fill out this bug report!
-  - type: input
-    id: contact
-    attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
+      label: Which operating system did the bug occur on?
+      options:
+        - Windows 10
+        - Windows 11
+        - Linux
     validations:
-      required: false
+      required: true
   - type: textarea
     id: what-happened
     attributes:
