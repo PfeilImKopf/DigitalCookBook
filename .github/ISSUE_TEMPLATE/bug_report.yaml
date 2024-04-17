@@ -29,8 +29,6 @@ body:
         - Linux - Red Hat
         - Linux - SUSE
       default: 4
-    validations:
-      required: true
       
   - type: dropdown
     id: report
