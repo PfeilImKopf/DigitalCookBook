@@ -28,7 +28,6 @@ body:
         - Linux - Fedora
         - Linux - Red Hat
         - Linux - SUSE
-    placeholder: none
     validations:
       required: true
       
