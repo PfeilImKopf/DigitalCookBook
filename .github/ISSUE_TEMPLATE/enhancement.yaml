@@ -1,6 +1,6 @@
-name: Enhancement
+name: Enhancement Proposal
 description: If you have a proposal to enhance the AuditTAP.
-title: "[Enhancement Proposal]: "
+title: "[Enhancement]: "
 labels: ["enhancement"]
 projects: []
 assignees: []
