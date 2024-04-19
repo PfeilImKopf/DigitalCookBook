@@ -61,7 +61,7 @@ body:
         - SUSE Linux Enterprise 15
         - Ubuntu 20.04
         - Ubuntu 22.04
-        - --------------------------------
+        - ---------------------------------
         - Google Chrome
         - Mozilla Firefox
         - Microsoft Edge
