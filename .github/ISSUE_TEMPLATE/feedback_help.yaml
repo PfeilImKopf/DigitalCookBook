@@ -14,7 +14,7 @@ body:
     id: info
     attributes:
       label: Description
-      description: You want t ogive us feedback or you need help with something? Let us know!
+      description: You want to give us feedback or you need help with something? Let us know!
       placeholder: Tell us what you need!
     validations:
       required: true
