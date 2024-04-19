@@ -1,7 +1,7 @@
-name: Feedback/Help
-description: If you want to give us feedback or you have a question regarding the AuditTAP.
-title: "[Feedback/Help]: "
-labels: ["question","help"]
+name: Help
+description: If you have a question regarding the AuditTAP.
+title: "[Help]: "
+labels: ["question"]
 projects: []
 assignees: []
 body:
@@ -14,7 +14,7 @@ body:
     id: info
     attributes:
       label: Description
-      description: You want to give us feedback or you need help with something? Let us know!
+      description: You need help with something? Let us know!
       placeholder: Tell us what you need!
     validations:
       required: true
