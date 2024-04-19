@@ -81,7 +81,7 @@ body:
   - type: input
     id: benchmark_id
     attributes: 
-      label: Banchmark and ID
+      label: Banchmark and ID (OPTIONAL)
       description: If the bug occurred in connection with a benchmark, please provide us with the benchmark name and its corresponding ID to which the bug is linked.
       placeholder: e.g. CIS benchmark 1.1.6
       
