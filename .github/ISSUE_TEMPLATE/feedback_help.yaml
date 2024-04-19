@@ -8,7 +8,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Your feedback and support is greatly appreciated, thanks for your time!
+        Your support is greatly appreciated, thanks for your time!
       
   - type: textarea
     id: info
