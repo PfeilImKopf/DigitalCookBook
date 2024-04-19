@@ -76,15 +76,7 @@ body:
         - Microsoft SQL Server 2016
     validations:
       required: true    
-      
-  - type: checkboxes
-    id: version_check
-    attributes:
-      label: Current Version?
-      description: Have you already ensured that you are working on our current version of the AuditTAP?
-      options:
-        - label: This bug occured on version 5.9 of the AuditTAP
-          required: true
+
 
   - type: input
     id: benchmark_id
@@ -110,5 +102,13 @@ body:
       placeholder: Tell us what you want to see!
     validations:
       required: true
- 
+       
+  - type: checkboxes
+    id: version_check
+    attributes:
+      label: Current Version?
+      description: Have you already ensured that you are working on our current version of the AuditTAP?
+      options:
+        - label: This bug occured on version 5.9 of the AuditTAP
+          required: true
   
